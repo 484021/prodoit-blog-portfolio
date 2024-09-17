@@ -16,20 +16,22 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Icons } from "@/components/icons";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { TextEffectPerChar } from "./motion-prim/text-effect-per-char";
 // import { POSTS } from "@/lib/constants";
+
 
 export function MainNav({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex flex-col items-start justify-start md:flex-row md:items-center md:justify-between pt-10 z-50",
+        "flex justify-between items-start md:flex-row md:items-center md:justify-between pt-10 z-50",
         className
       )}
     >
       <Link href={"/"}>
         <div className="flex items-center justify-between w-32">
-          <Icons.logo className="h-6 w-6" />
-          <p>Santhosh</p>
+          <Icons.logo className="h-6 w-6"  />
+          <TextEffectPerChar>Santhosh</TextEffectPerChar>
         </div>
       </Link>
       <NavigationMenu>
