@@ -88,7 +88,7 @@ export function MainNav({ className }: { className?: string }) {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <div className="flex items-center justify-between w-20 flex-col fixed bottom-5 right-5">
+      <div className="flex items-center justify-between w-20 flex-col fixed bottom-5 right-0">
         <ModeToggle />
         {/* <Link href="/rss">
           <Icons.rss className="h-6 w-6" />
