@@ -30,7 +30,7 @@ export function MainNav({ className }: { className?: string }) {
       <Link href={"/"}>
         <div className="flex items-center justify-between ">
           <Icons.logo className="h-6 w-6" />
-          <TextEffectPerChar className="px-2">Santhosh</TextEffectPerChar>
+          <TextEffectPerChar className="px-2 text-zinc-500">Santhosh</TextEffectPerChar>
         </div>
       </Link>
       <NavigationMenu className="mx-auto pt-3">
