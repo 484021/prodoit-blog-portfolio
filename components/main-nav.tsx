@@ -17,23 +17,19 @@ import {
 import { Icons } from "@/components/icons";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { TextEffectPerChar } from "./motion-prim/text-effect-per-char";
+import Logo from "./logo";
 // import { POSTS } from "@/lib/constants";
 
 export function MainNav({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex flex-col justify-between items-start md:flex-row md:items-center md:justify-between pt-10 z-50",
+        "flex flex-col justify-between items-start md:flex-row md:items-center md:justify-between pt-7 z-50 overflow-x-scroll",
         className
       )}
     >
-      <Link href={"/"}>
-        <div className="flex items-center justify-between ">
-          <Icons.logo className="h-6 w-6" />
-          <TextEffectPerChar className="px-2 text-zinc-500">Santhosh</TextEffectPerChar>
-        </div>
-      </Link>
-      <NavigationMenu className="mx-auto pt-3">
+     <Logo />
+      <NavigationMenu className="mx-auto mt-10">
         <NavigationMenuList>
           <NavigationMenuItem>
             <Link href="/" legacyBehavior passHref>

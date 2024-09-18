@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Inter } from "next/font/google";
 import Container from "@/components/Container";
 import { MainNav } from "@/components/main-nav";
+import Logo from "@/components/logo";
 
 const inter = Inter({ subsets: ["latin"] });
 
