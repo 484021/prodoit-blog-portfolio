@@ -14,9 +14,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Icons } from "@/components/icons";
 import { ModeToggle } from "@/components/ui/mode-toggle";
-import { TextEffectPerChar } from "./motion-prim/text-effect-per-char";
 import Logo from "./logo";
 // import { POSTS } from "@/lib/constants";
 
