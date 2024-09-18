@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Inter } from "next/font/google";
+import Container from "@/components/Container";
+import { MainNav } from "@/components/main-nav";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Santhosh B",
@@ -25,7 +27,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Container>
+            <MainNav />
+            {children}
+          </Container>
         </ThemeProvider>
       </body>
     </html>

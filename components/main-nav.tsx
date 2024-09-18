@@ -19,25 +19,40 @@ import { ModeToggle } from "@/components/ui/mode-toggle";
 import { TextEffectPerChar } from "./motion-prim/text-effect-per-char";
 // import { POSTS } from "@/lib/constants";
 
-
 export function MainNav({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex justify-between items-start md:flex-row md:items-center md:justify-between pt-10 z-50",
+        "flex flex-col justify-between items-start md:flex-row md:items-center md:justify-between pt-10 z-50",
         className
       )}
     >
       <Link href={"/"}>
-        <div className="flex items-center justify-between w-32">
-          <Icons.logo className="h-6 w-6"  />
-          <TextEffectPerChar>Santhosh</TextEffectPerChar>
+        <div className="flex items-center justify-between ">
+          <Icons.logo className="h-6 w-6" />
+          <TextEffectPerChar className="px-2">Santhosh</TextEffectPerChar>
         </div>
       </Link>
-      <NavigationMenu>
+      <NavigationMenu className="mx-auto pt-3">
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Posts</NavigationMenuTrigger>
+            <Link href="/" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                Home
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/about" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                About
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/projects">
+              <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
+            </Link>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                 {/* {POSTS.map((post) => (
@@ -53,19 +68,37 @@ export function MainNav({ className }: { className?: string }) {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="/about" legacyBehavior passHref>
+            <Link href="/blog">
+              <NavigationMenuTrigger>Blog</NavigationMenuTrigger>
+            </Link>
+            <NavigationMenuContent>
+              <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                {/* {POSTS.map((post) => (
+                  <ListItem
+                    key={post.title}
+                    title={post.title}
+                    href={post.href}
+                  >
+                    {post.description}
+                  </ListItem>
+                ))} */}
+              </ul>
+            </NavigationMenuContent>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/contact" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                About
+                Contact
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <div className="flex items-center justify-between w-20">
+      <div className="flex items-center justify-between w-20 flex-col fixed bottom-5 right-5">
         <ModeToggle />
-        <Link href="/rss">
+        {/* <Link href="/rss">
           <Icons.rss className="h-6 w-6" />
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

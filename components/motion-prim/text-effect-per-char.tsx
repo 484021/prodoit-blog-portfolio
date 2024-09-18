@@ -1,5 +1,9 @@
-import { TextEffect } from "@/components/core/text-effect";
+import { TextEffect, TextEffectProps } from "@/components/core/text-effect";
 
-export function TextEffectPerChar({children}: {children: React.ReactNode}) {
-  return <TextEffect per="char" preset="fade">{children}</TextEffect>;
+export function TextEffectPerChar({ children, className }: TextEffectProps) {
+  return (
+    <TextEffect per="char" preset="fade" className={className}>
+      {children}
+    </TextEffect>
+  );
 }

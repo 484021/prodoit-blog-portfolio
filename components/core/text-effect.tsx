@@ -10,7 +10,7 @@ import React from "react";
 
 type PresetType = "blur" | "shake" | "scale" | "fade" | "slide";
 
-type TextEffectProps = {
+export type TextEffectProps = {
   children: string;
   per?: "word" | "char" | "line";
   as?: keyof JSX.IntrinsicElements;
