@@ -16,13 +16,14 @@ import {
 } from "@/components/ui/navigation-menu";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import Logo from "./logo";
+import { POSTS, projectCategories } from "@/lib/constants";
 // import { POSTS } from "@/lib/constants";
 
 export function MainNav({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex flex-col justify-between items-start md:flex-row md:items-center md:justify-between pt-7 z-50 overflow-x-scroll",
+        "flex flex-col justify-between items-start md:flex-row md:items-center md:justify-between pt-7 z-50 ",
         className
       )}
     >
@@ -36,28 +37,28 @@ export function MainNav({ className }: { className?: string }) {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <Link href="/about" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 About
               </NavigationMenuLink>
             </Link>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
           <NavigationMenuItem>
             <Link href="/projects">
               <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
             </Link>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {/* {POSTS.map((post) => (
+                {projectCategories.map((category) => (
                   <ListItem
-                    key={post.title}
-                    title={post.title}
-                    href={post.href}
+                    key={category.title}
+                    title={category.title}
+                    href={category.href}
                   >
-                    {post.description}
+                    {category.description}
                   </ListItem>
-                ))} */}
+                ))}
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -67,7 +68,7 @@ export function MainNav({ className }: { className?: string }) {
             </Link>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {/* {POSTS.map((post) => (
+                {POSTS.map((post) => (
                   <ListItem
                     key={post.title}
                     title={post.title}
@@ -75,7 +76,7 @@ export function MainNav({ className }: { className?: string }) {
                   >
                     {post.description}
                   </ListItem>
-                ))} */}
+                ))}
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>

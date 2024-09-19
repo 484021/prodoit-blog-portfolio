@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 import Container from "@/components/Container";
 import { MainNav } from "@/components/main-nav";
 import Footer from "@/components/footer";
+import { html } from "framer-motion/client";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,19 +22,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          
+
           <Container>
             <MainNav />
             {children}
           </Container>
         </ThemeProvider>
         <Footer />
+            
+          
       </body>
     </html>
   );

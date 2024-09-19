@@ -1,5 +1,6 @@
 "use client";
 
+import { POSTS } from "@/lib/constants";
 // import { POSTS } from "@/lib/constants";
 import { Icons } from "./icons";
 import Link from "next/link";
@@ -12,7 +13,7 @@ export default function Footer() {
 //   const initialState = { message: "", errors: {} };
 //   const [state, dispatch] = useFormState(createSubscriber, initialState);
   return (
-    <footer className="bg-zinc-100 py-8 dark:bg-zinc-800 mt-10">
+    <footer className="bg-zinc-100 py-8 dark:bg-zinc-800 mt-auto">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           <div className="space-y-4">
@@ -22,7 +23,7 @@ export default function Footer() {
             </div>
             <p className="text-zinc-500 dark:text-zinc-400 text-sm">
               {/* persuasive website description */}
-              Crafting captivating digital experiences for brands and individuals.
+              Crafting captivating digital solutions for brands and individuals.
             </p>
             <div className="flex space-x-4">
               <a
@@ -46,7 +47,7 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-md font-semibold">Blog</h3>
             <ul className="space-y-2 text-sm">
-              {/* {POSTS.map((post) => (
+              {POSTS.map((post) => (
                 <li key={post.title}>
                   <Link
                     href={post.href}
@@ -55,7 +56,7 @@ export default function Footer() {
                     {post.title}
                   </Link>
                 </li>
-              ))} */}
+              ))}
             </ul>
           </div>
           <div className="space-y-4">

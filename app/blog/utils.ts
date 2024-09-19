@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 // get all the mdx files from the dir
 function getMDXFiles(dir: string) {
+ 
   return fs.readdirSync(dir).filter((file) => path.extname(file) === ".mdx");
 }
 // Read data from those files
