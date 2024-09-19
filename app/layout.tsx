@@ -5,7 +5,6 @@ import { Inter } from "next/font/google";
 import Container from "@/components/Container";
 import { MainNav } from "@/components/main-nav";
 import Footer from "@/components/footer";
-import { html } from "framer-motion/client";
 
 const inter = Inter({ subsets: ["latin"] });
 

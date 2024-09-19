@@ -3,7 +3,6 @@ import { getBlogPosts } from "../utils";
 import Link from "next/link";
 import Container from "@/components/Container";
 import CardCategory from "@/components/CardCategory";
-import Header from "@/components/Header";
 
 // export async function generateStaticParams() {
 //   const posts = getBlogPosts();
