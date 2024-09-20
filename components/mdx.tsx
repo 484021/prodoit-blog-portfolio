@@ -159,10 +159,9 @@ const components = {
   Table,
 };
 
-// CustomMDX component
 type CustomMDXProps = {
-  source: any; // Use 'any' for source
-  components?: any; // Use 'any' for components
+  source: string;
+  components?: Record<string, React.ComponentType<any>>;
 };
 
 export function CustomMDX(props: CustomMDXProps) {
