@@ -23,7 +23,7 @@ export function MainNav({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex flex-col justify-between items-start md:flex-row md:items-center md:justify-between pt-7 z-50 overflow-auto whitespace-nowrap",
+        "flex flex-col justify-between items-center md:flex-row md:items-center md:justify-between pt-7 z-50 overflow-auto whitespace-nowrap",
         className
       )}
     >

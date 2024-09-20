@@ -1,46 +1,77 @@
-import React from "react";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import Image from "next/image";
+import React, { ReactNode } from "react";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote/rsc";
+import { MDXComponents } from "mdx/types";
+
+import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 import { highlight } from "sugar-high";
 
-function Blockquote(props: any) {
+// Blockquote component
+interface BlockquoteProps
+  extends React.BlockquoteHTMLAttributes<HTMLQuoteElement> {
+  children?: ReactNode;
+}
+
+function Blockquote({ children }: BlockquoteProps) {
   return (
-    <blockquote
-      className="bg-blue-200 dark:bg-blue-950 dark:bg-opacity-30 bg-opacity-30 p-4 rounded-md blockquote"
-      {...props}
-    />
+    <blockquote className="bg-blue-200 dark:bg-blue-950 dark:bg-opacity-30 bg-opacity-30 p-4 rounded-md blockquote">
+      {children}
+    </blockquote>
   );
 }
 
-function Code({ children, ...props }: any) {
+// Code component
+interface CodeProps {
+  children: string;
+}
+
+function Code({ children, ...props }: CodeProps) {
   const codeHTML = highlight(children);
 
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
 }
 
-function CustomLink(props: any) {
-  const href = props.href;
+// CustomLink component
+interface CustomLinkProps
+  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  href: string;
+  children: ReactNode;
+}
 
+function CustomLink({ href, children, ...props }: CustomLinkProps) {
   if (href.startsWith("/")) {
     return (
       <Link href={href} {...props}>
-        {props.children}
+        {children}
       </Link>
     );
   }
 
   if (href.startsWith("#")) {
-    return <a {...props} />;
+    return (
+      <a href={href} {...props}>
+        {children}
+      </a>
+    );
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />;
+  return (
+    <a href={href} target="_blank" rel="noopener noreferrer" {...props}>
+      {children}
+    </a>
+  );
 }
 
-function RoundedImage(props: any) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />;
+// RoundedImage component
+interface RoundedImageProps extends ImageProps {
+  alt: string;
 }
 
+function RoundedImage({ alt, ...props }: RoundedImageProps) {
+  return <Image alt={alt} className="rounded-lg" {...props} />;
+}
+
+// Helper function to slugify text
 function slugify(str: string) {
   return str
     .toString()
@@ -51,9 +82,14 @@ function slugify(str: string) {
     .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
+// Heading creator function
+interface HeadingProps {
+  children?: React.ReactNode;
+}
+
 function createHeading(level: number) {
-  const Heading = ({ children }: any) => {
-    const slug = slugify(children);
+  const Heading = ({ children }: HeadingProps) => {
+    const slug = slugify(children?.toString() || "");
 
     return React.createElement(
       `h${level}`,
@@ -73,13 +109,30 @@ function createHeading(level: number) {
   return Heading;
 }
 
-function Table({ data }: any) {
-  const headers = data.headers.map((header: any, index: any) => (
+// Table component
+interface TableData {
+  headers: string[];
+  rows: string[][];
+}
+
+interface TableProps {
+  data: {
+    headers: string[];
+    rows: string[][];
+  };
+}
+
+function Table({ data }: TableProps) {
+  const headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
   ));
 
-  const rows = data.rows.map((cell: any, cellIndex: any) => (
-    <td key={cellIndex}>{cell}</td>
+  const rows = data.rows.map((row, rowIndex) => (
+    <tr key={rowIndex}>
+      {row.map((cell, cellIndex) => (
+        <td key={cellIndex}>{cell}</td>
+      ))}
+    </tr>
   ));
 
   return (
@@ -92,6 +145,7 @@ function Table({ data }: any) {
   );
 }
 
+// Component map
 const components = {
   h1: createHeading(1),
   h2: createHeading(2),
@@ -106,7 +160,12 @@ const components = {
   Table,
 };
 
-export function CustomMDX(props: any) {
+// CustomMDX component
+type CustomMDXProps = {
+  source: MDXRemoteSerializeResult;
+  components?: MDXComponents;
+};
+export function CustomMDX(props: CustomMDXProps) {
   return (
     <MDXRemote
       {...props}
