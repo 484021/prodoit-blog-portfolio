@@ -8,7 +8,7 @@ import { CustomMDX } from "@/components/mdx";
 // import { baseUrl } from "@/app/sitemap";
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts();
+  const posts = getBlogPosts();
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -61,7 +61,7 @@ export default function Page({
 }: {
   params: { category: string; slug: string };
 }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  const post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
