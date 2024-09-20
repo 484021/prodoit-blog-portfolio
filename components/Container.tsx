@@ -10,7 +10,7 @@ export default function Container({
   return (
     <div
       className={cn(
-        "flex flex-col mx-auto w-full px-2.5 md:px-20 pb-7 overflow-hidden",
+        "flex flex-col mx-auto w-full px-2.5 md:px-20 pb-7 max-w-screen-xl",
         className
       )}
     >
