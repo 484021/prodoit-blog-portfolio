@@ -109,11 +109,11 @@ function createHeading(level: number) {
   return Heading;
 }
 
-// Table component
-interface TableData {
-  headers: string[];
-  rows: string[][];
-}
+// // Table component
+// interface TableData {
+//   headers: string[];
+//   rows: string[][];
+// }
 
 interface TableProps {
   data: {
