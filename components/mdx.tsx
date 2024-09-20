@@ -162,9 +162,10 @@ const components = {
 
 // CustomMDX component
 type CustomMDXProps = {
-  source: MDXRemoteSerializeResult;
-  components?: MDXComponents;
+  source: any; // Use 'any' for source
+  components?: any; // Use 'any' for components
 };
+
 export function CustomMDX(props: CustomMDXProps) {
   return (
     <MDXRemote
