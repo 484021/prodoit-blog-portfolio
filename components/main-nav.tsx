@@ -23,12 +23,12 @@ export function MainNav({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex flex-col justify-between items-start md:flex-row md:items-center md:justify-between pt-7 z-50 ",
+        "flex flex-col justify-between items-start md:flex-row md:items-center md:justify-between pt-7 z-50 overflow-auto whitespace-nowrap w-full",
         className
       )}
     >
      <Logo />
-      <NavigationMenu className="mx-auto mt-10">
+      <NavigationMenu className="-ml-2 mt-10 md:mx-auto ">
         <NavigationMenuList>
           <NavigationMenuItem>
             <Link href="/" legacyBehavior passHref>
@@ -37,13 +37,20 @@ export function MainNav({ className }: { className?: string }) {
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
-          {/* <NavigationMenuItem>
+          <NavigationMenuItem>
             <Link href="/about" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 About
               </NavigationMenuLink>
             </Link>
-          </NavigationMenuItem> */}
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <Link href="/about" legacyBehavior passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                About
+              </NavigationMenuLink>
+            </Link>
+          </NavigationMenuItem>
           <NavigationMenuItem>
             <Link href="/projects">
               <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
