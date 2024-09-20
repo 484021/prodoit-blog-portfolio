@@ -1,6 +1,5 @@
 import React, { ReactNode } from "react";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote/rsc";
-import { MDXComponents } from "mdx/types";
+import { MDXRemote } from "next-mdx-remote/rsc";
 
 import Image, { ImageProps } from "next/image";
 import Link from "next/link";
