@@ -31,8 +31,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Logo />
           <Container>
-            <Logo />
             {/* <MainNav /> */}
             <AnimatedNavBar />
             {children}

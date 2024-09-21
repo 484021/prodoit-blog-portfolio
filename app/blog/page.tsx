@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Blog() {
   return (
-    <main className="max-w-[60ch] min-w-[60ch] mx-auto w-full space-y-6">
+    <main className="max-w-[60ch] lg:min-w-[60ch] mx-auto w-full space-y-6">
       <div>
         <LatestPosts />
       </div>

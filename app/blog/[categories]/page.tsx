@@ -30,7 +30,7 @@ export default function Page({ params }: { params: { categories: string } }) {
     notFound();
   }
   return (
-    <main className="max-w-[60ch] min-w-[60ch] mx-auto w-full space-y-6">
+    <main className="max-w-[60ch] lg:min-w-[60ch] mx-auto w-full space-y-6">
       <h1 className="title font-semibold text-2xl tracking-wider mt-4 uppercase ml-2">
         {posts[0]?.metadata.category}
       </h1>
