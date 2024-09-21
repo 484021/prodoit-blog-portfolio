@@ -16,14 +16,14 @@ import {
 } from "@/components/ui/navigation-menu";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 // import Logo from "./logo";
-// import { POSTS, projectCategories } from "@/lib/constants";
+import { POSTS, projectCategories } from "@/lib/constants";
 // import { POSTS } from "@/lib/constants";
 
 export function MainNav({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "flex flex-col justify-between items-center md:flex-row md:items-center md:justify-between pt-7 z-50 overflow-auto whitespace-nowrap",
+        "flex flex-col mb-8 mr-auto mt-8 z-50 mx-auto",
         className
       )}
     >

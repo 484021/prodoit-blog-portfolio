@@ -6,11 +6,13 @@ import Container from "@/components/Container";
 import { MainNav } from "@/components/main-nav";
 import Footer from "@/components/footer";
 import Logo from "@/components/logo";
+import AnimatedNavBar from "@/components/animated-nav-bar";
+import { ModeToggle } from "@/components/ui/mode-toggle";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Santhosh B",
+  title: "Santhosh",
   description:
     "Designing and developing web solutions tailored to your business needs, right now.",
 };
@@ -31,12 +33,13 @@ export default function RootLayout({
         >
           <Container>
             <Logo />
-
-            <MainNav />
+            {/* <MainNav /> */}
+            <AnimatedNavBar />
             {children}
+            <ModeToggle />
+            <Footer />
           </Container>
         </ThemeProvider>
-        <Footer />
       </body>
     </html>
   );

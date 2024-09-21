@@ -68,7 +68,7 @@ export default function Page({
   }
 
   return (
-    <>
+    <main className="">
       {/* <script
         type="application/ld+json"
         suppressHydrationWarning
@@ -115,6 +115,6 @@ export default function Page({
           <CustomMDX source={post.content} />
         </article>
       </Container>
-    </>
+    </main>
   );
 }
