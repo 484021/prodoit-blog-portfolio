@@ -30,7 +30,7 @@ export default function HomeHeroSection() {
   };
 
   return (
-    <section className="w-full bg-background ">
+    <section className="w-full bg-background pb-7">
       <div className="">
         <div className="flex flex-col ">
           <motion.div
