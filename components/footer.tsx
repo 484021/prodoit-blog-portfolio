@@ -4,14 +4,15 @@ import { POSTS } from "@/lib/constants";
 // import { POSTS } from "@/lib/constants";
 import { Icons } from "./icons";
 import Link from "next/link";
+import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 // import { Input } from "./ui/input";
 // import { Button } from "./ui/button";
 // import { createSubscriber } from "@/lib/actions";
 // import { useFormState } from "react-dom";
 
 export default function Footer() {
-//   const initialState = { message: "", errors: {} };
-//   const [state, dispatch] = useFormState(createSubscriber, initialState);
+  //   const initialState = { message: "", errors: {} };
+  //   const [state, dispatch] = useFormState(createSubscriber, initialState);
   return (
     // <footer className="bg-zinc-100 py-8 dark:bg-zinc-800 mt-auto">
     //   <div className="container mx-auto px-4 md:px-6">
@@ -140,11 +141,16 @@ export default function Footer() {
     //   </div>
     // </footer>
 
-    <footer className="mt-10 text-center">
+    <footer className="mt-auto text-center">
       <div className=" flex justify-center space-x-4 tracking-tight">
-        <Link href="https://www.linkedin.com/in/sanbho/">LinkedIn</Link>
-        <Link href="XXXXXXXXXXXXXXXXXXXXXXXXX">GitHub</Link>
-        <Link href="XXXXXXXXXXXXXXXXXXXXXXXXXX">Twitter</Link>
+        <div className="flex items-center group focus:scale-110 hover:scale-110 active:scale-105 transition hover:-translate-y-1">
+          <Link href="https://www.linkedin.com/in/sanbho/">linkedin</Link>
+          <ArrowTopRightIcon className=" text-violet-500  h-5 w-5 mt-1 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+        </div>
+        <div className="flex items-center group focus:scale-110 hover:scale-110 active:scale-105 transition hover:-translate-y-1">
+          <Link href="https://github.com/484021">github</Link>
+          <ArrowTopRightIcon className=" text-violet-500  h-5 w-5 mt-1 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+        </div>
       </div>
     </footer>
   );

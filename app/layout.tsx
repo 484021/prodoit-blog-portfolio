@@ -12,9 +12,9 @@ import { ModeToggle } from "@/components/ui/mode-toggle";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Santhosh",
+  title: "Santhosh Bhoopal",
   description:
-    "Designing and developing web solutions tailored to your business needs, right now.",
+    "Solving problems and building solutions",
 };
 
 export default function RootLayout({
