@@ -14,7 +14,7 @@ export default function PopularPosts() {
 //   if (isLoading) return <SkeletonCard />;
 
   return (
-    <ul className="overflow-auto">
+    <ul className="">
       {/* {data?.map((post: { category: string; slug: string; title: string }) => (
         <Link href={`/blog/${post.category}/${post.slug}`} key={post.title}>
           <li className="flex items-center gap-2 group cursor-pointer py-2">

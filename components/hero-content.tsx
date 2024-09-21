@@ -4,7 +4,7 @@ import React from "react";
 
 export default function HeroContent() {
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-2 gap-4">
       <div>
         <div className="mb-3">Projects</div>
         <ul className="">
@@ -13,7 +13,7 @@ export default function HeroContent() {
               <span className="flex items-center underline tracking-wider">
                 Petly
               </span>
-              <p className="font-thin text-sm mt-1">
+              <p className="font-light text-sm mt-1">
                 Pet managment app for pet daycare owners.
               </p>
             </li>
@@ -23,7 +23,7 @@ export default function HeroContent() {
               <span className="flex items-center underline tracking-wider">
                 Nestio
               </span>
-              <p className="font-thin text-sm mt-1">
+              <p className="font-light text-sm mt-1">
                 Rental property managment app to help connect owners and
                 renters.
               </p>

@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -93,8 +95,8 @@
 
   margin-left: -1em;
   padding-right: 0.5em;
-  width: 80%;
-  max-width: 700px;
+  /* width: 100%; */
+  /* max-width: 700px; */
   cursor: pointer;
 }
 
@@ -195,7 +197,7 @@ input[type="email"] {
 
 table {
   display: block;
-  max-width: fit-content;
+  /* max-width: fit-content; */
   overflow-x: auto;
   white-space: nowrap;
 }

@@ -25,7 +25,7 @@ export default function AnimatedNavBar() {
           <Link href={item.href} key={item.id}>
             <li key={item.id} className="relative">
               <button
-                className={`text-lg font-medium  transition-colors duration-200`}
+                className={`text-base font-medium  transition-colors duration-200`}
                 onClick={() => setActiveItem(item.id)}
               >
                 {item.title}

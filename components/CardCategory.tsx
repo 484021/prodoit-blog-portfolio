@@ -17,16 +17,18 @@ export default function CardCategory({
   date: string;
 }) {
   return (
-    <Card className="w-[350px] h-[290px] shadow-lg">
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p>{summary}</p>
-      </CardContent>
-      <CardFooter>
-        <p className="text-xs text-gray-500">{formatDate(date)}</p>
-      </CardFooter>
-    </Card>
+    <div>
+      <Card className="w-[350px] h-full shadow-lg hover:scale-105 transition">
+        <CardHeader>
+          <CardTitle>{title}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          <p className="font-light">{summary}</p>
+        </CardContent>
+        <CardFooter className="mt-auto">
+          <p className="text-xs text-gray-500">{formatDate(date)}</p>
+        </CardFooter>
+      </Card>
+    </div>
   );
 }

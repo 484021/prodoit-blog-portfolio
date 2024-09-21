@@ -1,37 +1,37 @@
 export const POSTS: { title: string; href: string; description: string }[] = [
   {
-    title: "React",
-    href: "/blog/react",
+    title: "Tech In T.O.",
+    href: "/blog/tech-in-to",
     description:
-      "Learn React.js and Next.js in a simple to understand articles",
+      "All the cool tech related things in Toronto",
   },
   {
-    title: "Javascript",
-    href: "/blog/javascript",
-    description: "Learn what are new in the javascript world",
+    title: "Notes",
+    href: "/blog/notes",
+    description: "Sharing my notes while I'm learning new things.",
   },
   {
-    title: "CSS",
-    href: "/blog/css",
-    description: "Everything about CSS and the new features.",
+    title: "Me",
+    href: "/blog/me",
+    description: "Random stuff about me.",
   },
-  {
-    title: "Performance",
-    href: "/blog/performance",
-    description: "How to make your next app Blazing fast",
-  },
-  {
-    title: "Animaion",
-    href: "/blog/animations",
-    description:
-      "Everything you need to know about animations. We are going to learn about animation library like framer motion, GSAP and many more.",
-  },
-  {
-    title: "Career",
-    href: "/blog/career",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
+  // {
+  //   title: "Performance",
+  //   href: "/blog/performance",
+  //   description: "How to make your next app Blazing fast",
+  // },
+  // {
+  //   title: "Animaion",
+  //   href: "/blog/animations",
+  //   description:
+  //     "Everything you need to know about animations. We are going to learn about animation library like framer motion, GSAP and many more.",
+  // },
+  // {
+  //   title: "Career",
+  //   href: "/blog/career",
+  //   description:
+  //     "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+  // },
 ];
 
 export const projectCategories: {

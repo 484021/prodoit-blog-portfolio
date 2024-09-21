@@ -1,0 +1,82 @@
+---
+title: "Exploring React Server Components at TechTank's Meetup"
+publishedAt: "2024-09-21"
+summary: "Join me as I break down the latest insights on React Server Components (RSC) from Lazar Nikolov’s presentation at TechTank's monthly event. Learn how RSC enhances performance in Next.js through server-client streaming."
+category: "react"
+---
+
+# Exploring React Server Components at TechTank's Meetup
+
+Last week, I attended **TechTank’s** monthly meetup where the focus was on one of the hottest topics in the React ecosystem: **React Server Components (RSC)**. The event featured a presentation by **[Lazar Nikolov](https://www.youtube.com/@nikolovlazar)**, a full-stack developer known for his informative tutorials on YouTube.
+
+Though I’ve been working with **Next.js** for a while and was already familiar with RSC, Lazar’s deep dive really helped me connect the dots on some more advanced concepts. But let’s start from the beginning.
+
+## The Event: Great Food, Drinks, and an Even Better Presentation
+
+I attended the event with my friend Erwin (he’s in marketing, not tech, but who can resist pizza and drinks, right?). The event, hosted at **Points** in Toronto, offered a friendly atmosphere to mingle with fellow developers. After grabbing some pizza and non-alcoholic drinks, I couldn’t wait for Lazar’s presentation to start.
+
+## What Makes React Server Components So Exciting?
+
+React Server Components (RSC) represent the next evolution in React’s architecture, blending the best of **server-side** and **client-side** rendering. But what really stood out in Lazar's talk was the way he explained how **RSC payloads are streamed as chunks** when using **Incremental Static Regeneration (ISR)** in **Next.js**.
+
+### Key Takeaways
+
+- **RSC & Performance**: RSC optimizes web performance by allowing **server-side rendering** of heavy components while keeping the client-side lightweight. This means faster loading times, especially for large applications.
+
+- **Streaming HTML**: One of the biggest benefits of RSC is how it enables streaming HTML. With this feature, the server sends chunks of data incrementally rather than waiting for the entire payload. This boosts performance, especially in Next.js applications with ISR.
+
+- **Real-World Example**: Lazar showed us how this works in practice with a Next.js demo, highlighting the differences in load times and the user experience when switching between traditional SSR (Server-Side Rendering) and RSC streaming.
+
+```jsx
+// An example of how React Server Components with ISR work in Next.js
+
+export async function getStaticProps() {
+  const data = await fetchData();
+  return {
+    props: {
+      data,
+    },
+    revalidate: 10, // ISR will regenerate the page every 10 seconds
+  };
+}
+
+function PageComponent({ data }) {
+  return (
+    <div>
+      <h1>ISR with RSC</h1>
+      <p>Data is streamed in chunks, improving performance!</p>
+    </div>
+  );
+}
+
+export default PageComponent;
+```
+
+## Meeting New People and Opportunities
+
+After the presentation, I had the chance to chat with some of the employees from **Plusgrade**, one of the event’s sponsors. They shared a few referral links for open positions, which was a pleasant surprise. Networking is one of the key highlights of these meetups—it's not just about learning, but also about building relationships and expanding opportunities.
+
+## Wrapping Up: React Server Components Are Here to Stay
+
+I left the event feeling both excited and inspired. Even though I’ve worked with React Server Components (RSC) in **Next.js** before, hearing Lazar break it down in a digestible, structured way helped me connect the dots. His explanation of streaming payloads for ISR (Incremental Static Regeneration) and how React Server Components boost performance was eye-opening.
+
+If you're building with **React** in 2024, RSCs are definitely something you’ll want to dive into.
+
+---
+
+### Key Takeaways:
+- **React Server Components**: Simplifies the data flow by separating server-side and client-side concerns, helping performance with streaming HTML.
+- **Next.js and ISR**: Combining RSCs with ISR optimizes how pages are rendered and served.
+- **Community Meetups**: Not only great for learning, but also perfect for meeting new people and opening up professional opportunities.
+- **Networking**: Events like these give you access to people working in tech, plus potential job opportunities (like my referral links from Plusgrade!).
+
+---
+
+### Want to Learn More?
+
+If you’re interested in exploring **React Server Components**, check out [Lazar Nikolov's YouTube channel](https://www.youtube.com/@nikolovlazar) where he breaks down these and other React topics in detail.
+
+Also, keep an eye on [TechTank](https://www.linkedin.com/company/techtank-to) for monthly events like this, packed with valuable insights and networking opportunities for developers at all levels.
+
+_You got this!_
+

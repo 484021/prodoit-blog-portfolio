@@ -4,6 +4,7 @@ import { formatDate, getBlogPosts } from "../../utils";
 import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import { CustomMDX } from "@/components/mdx";
+import { main } from "framer-motion/client";
 // import ReportViews from "@/components/ReportViews";
 // import { baseUrl } from "@/app/sitemap";
 
@@ -96,20 +97,22 @@ export default function Page({
         title={post.metadata.title}
         slug={post.slug}
       /> */}
-      <div className="mt-7">
-        <BreadcrumbWithCustomSeparator
-          category={post.metadata.category}
-          slug={post.slug}
-        />
-      </div>
-      <h1 className="title font-semibold text-2xl tracking-tighter mt-4">
-        {post.metadata.title}
-      </h1>
-      <div className="flex justify-between items-center mt-2 mb-4 text-sm">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
-          {formatDate(post.metadata.publishedAt)}
-        </p>
-      </div>
+      <Container>
+        <div className="mt-7">
+          <BreadcrumbWithCustomSeparator
+            category={post.metadata.category}
+            slug={post.slug}
+          />
+        </div>
+        <h1 className="title font-semibold text-2xl tracking-tighter mt-4">
+          {post.metadata.title}
+        </h1>
+        <div className="flex justify-between items-center mt-2 mb-4 text-sm">
+          <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
+            {formatDate(post.metadata.publishedAt)}
+          </p>
+        </div>
+      </Container>
       <Container>
         <article className="prose">
           <CustomMDX source={post.content} />

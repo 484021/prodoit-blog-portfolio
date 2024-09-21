@@ -10,7 +10,7 @@ export default function Container({
   return (
     <div
       className={cn(
-        "flex flex-col mx-auto max-w-screen-xl min-h-screen pt-0 md:pt-8 p-8",
+        "flex flex-col mx-auto max-w-screen-xl pt-0 md:pt-8 p-8",
         className
       )}
     >

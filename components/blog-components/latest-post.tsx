@@ -5,8 +5,8 @@ export default function LatestPosts() {
   const latestPosts = getBlogPosts();
   return (
     <>
-      <h1 className="inline-block font-heading text-4xl tracking-tight lg:text-5xl">
-        Recently Published
+      <h1 className="inline-block font-semibold tracking-wide">
+        Recent
       </h1>
       {latestPosts
         .sort((a, b) => {
@@ -18,13 +18,13 @@ export default function LatestPosts() {
           return 1;
         })
         .map((post) => (
-          <article key={post.slug} className="text-wrap my-10">
+          <article key={post.slug} className="text-wrap mt-3">
             <Link href={`/blog/${post.metadata.category}/${post.slug}`}>
-              <h3 className="font-bold py-2 leading-5 hover:text-blue-400">
+              <h3 className="font-medium leading-5 underline decoration-violet-400 hover:text-violet-500">
                 {post.metadata.title}
               </h3>
             </Link>
-            <p className="leading-8 my-5">{post.metadata.summary}</p>
+            <p className="font-light mt-1">{post.metadata.summary}</p>
             <p className="text-sm text-muted-foreground">
               {formatDate(post.metadata.publishedAt)}
             </p>

@@ -31,14 +31,15 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+       
           <Logo />
-          <Container>
+          {/* <Container> */}
             {/* <MainNav /> */}
             <AnimatedNavBar />
             {children}
             <ModeToggle />
             <Footer />
-          </Container>
+          {/* </Container> */}
         </ThemeProvider>
       </body>
     </html>

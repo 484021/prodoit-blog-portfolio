@@ -30,35 +30,38 @@ export default function Page({ params }: { params: { categories: string } }) {
     notFound();
   }
   return (
-    <main className="max-w-[60ch] lg:min-w-[60ch] mx-auto w-full space-y-6">
-      <h1 className="title font-semibold text-2xl tracking-wider mt-4 uppercase ml-2">
-        {posts[0]?.metadata.category}
-      </h1>
+    <Container>
+      <main className="w-full">
+        <h1 className="title font-semibold tracking-wider capitalize">
+          {posts[0]?.metadata.category}
+        </h1>
 
-      <div className="flex flex-wrap gap-4 mt-10 items-center justify-center">
-        {posts
-          .sort((a, b) => {
-            if (
-              new Date(a.metadata.publishedAt) >
-              new Date(b.metadata.publishedAt)
-            ) {
-              return -1;
-            }
-            return 1;
-          })
-          .map((post) => (
-            <Link
-              href={`/blog/${post.metadata.category}/${post.slug}`}
-              key={post.slug}
-            >
-              <CardCategory
-                title={post.metadata.title}
-                summary={post.metadata.summary}
-                date={post.metadata.publishedAt}
-              />
-            </Link>
-          ))}
-      </div>
-    </main>
+        <div className=" flex flex-wrap gap-2 mt-7">
+          {posts
+            .sort((a, b) => {
+              if (
+                new Date(a.metadata.publishedAt) >
+                new Date(b.metadata.publishedAt)
+              ) {
+                return -1;
+              }
+              return 1;
+            })
+            .map((post) => (
+              <Link
+                href={`/blog/${post.metadata.category}/${post.slug}`}
+                key={post.slug}
+              >
+                <CardCategory
+                  title={post.metadata.title}
+                  summary={post.metadata.summary}
+                  date={post.metadata.publishedAt}
+                />
+              </Link>
+            ))}
+     
+        </div>
+      </main>
+    </Container>
   );
 }
