@@ -19,7 +19,7 @@ export default function AnimatedNavBar() {
   //underline color depending on dark or light theme
 
   return (
-    <nav className="py-4 my-7 mx-auto">
+    <nav className="py-4 mx-auto mt-12">
       <ul className="flex justify-center space-x-8 ">
         {navItems.map((item) => (
           <Link href={item.href} key={item.id}>
