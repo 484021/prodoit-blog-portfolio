@@ -13,6 +13,7 @@ const navItems = [
 ];
 
 export default function AnimatedNavBar() {
+  
   const [activeItem, setActiveItem] = useState(1);
 
   //underline color depending on dark or light theme

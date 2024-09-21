@@ -140,7 +140,7 @@ export default function Footer() {
     //   </div>
     // </footer>
 
-    <footer className="mt-auto text-center">
+    <footer className="mt-10 text-center">
       <div className=" flex justify-center space-x-4 tracking-tight">
         <Link href="https://www.linkedin.com/in/sanbho/">LinkedIn</Link>
         <Link href="XXXXXXXXXXXXXXXXXXXXXXXXX">GitHub</Link>
