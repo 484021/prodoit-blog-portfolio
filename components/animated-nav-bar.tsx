@@ -21,8 +21,8 @@ export default function AnimatedNavBar() {
     <nav className="py-4 mx-auto mt-16 lg:mt-12">
       <ul className="flex justify-center space-x-8 ">
         {navItems.map((item) => (
-          <Link href={item.href} key={Math.random()}>
-            <li key={Math.random()} className="relative">
+          <Link href={item.href} key={item.id}>
+            <li key={item.id} className="relative">
               <button
                 className={`text-base font-medium  transition-colors duration-200`}
                 onClick={() => setActiveItem(item.id)}
