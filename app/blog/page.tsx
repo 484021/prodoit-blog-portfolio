@@ -15,12 +15,12 @@ export default function Blog() {
         <div>
           <LatestPosts />
         </div>
-        <div className="">
+        {/* <div className="">
           <div className="mt-10 sticky top-4">
             <h1 className="font-bold mb-4">Trending</h1>
             <PopularPosts />
           </div>
-        </div>
+        </div> */}
       </main>
     </Container>
   );

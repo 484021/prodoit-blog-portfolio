@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardHeader,
@@ -12,20 +12,41 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { toast } from "react-toastify";
 
 export function ContactForm() {
+  const [pending, setIsPending] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission logic here
+    //create formData
+
+    const name = e.currentTarget.name.value;
+    const email = e.currentTarget.email.value;
+    const message = e.currentTarget.message.value;
+
+    setIsPending(true);
     try {
-      fetch("/api/send", {
+      const res = await fetch("/api/send", {
         method: "POST",
-        body: new FormData(e.currentTarget),
+        body: JSON.stringify({ name, email, message }),
       });
+      if (res.ok) {
+        alert("Message sent successfully will change into toast soon!");
+
+        setIsPending(false);
+      }
     } catch (error) {
-      console.error(error);
+      alert("Something went wrong");
+    } finally {
+      setIsPending(false);
     }
   };
+
   return (
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
@@ -38,7 +59,11 @@ export function ContactForm() {
         <form className="grid gap-4" onSubmit={handleSubmit}>
           <div className="grid gap-2">
             <Label htmlFor="name">Name</Label>
-            <Input id="name" placeholder="Enter your name" />
+            <Input
+              id="name"
+              placeholder="Enter your name"
+
+            />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
@@ -53,8 +78,8 @@ export function ContactForm() {
             />
           </div>
           <CardFooter className="flex justify-end">
-            <Button type="submit" className="mt-4 -mb-5">
-              Submit
+            <Button type="submit" className="mt-4 -mb-5" disabled={pending}>
+              {pending ? "Sending..." : "Send"}
             </Button>
           </CardFooter>
         </form>

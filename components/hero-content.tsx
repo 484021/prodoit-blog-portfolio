@@ -1,5 +1,4 @@
-import { LockOpen1Icon, PaperPlaneIcon } from "@radix-ui/react-icons";
-import { div } from "framer-motion/client";
+import { PaperPlaneIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import React from "react";
 
@@ -40,30 +39,30 @@ export default function HeroContent() {
         </div>
 
         <div>
-            <Link href="/blog">
-          <div className="flex group">
+          <Link href="/blog">
+            <div className="flex group">
               <div className="mb-3">Blog</div>
               <PaperPlaneIcon className="mt-1  text-violet-500  h-5 w-5 group-hover:translate-x-1 transition-all ml-1" />
-          </div>
-            </Link>
+            </div>
+          </Link>
           <ul className="">
-            <Link href="xxxxxxxxxx" target="_blank">
+            <Link href="blog/next-js/why-i-chose-nextjs" target="_blank">
               <li className="flex flex-col mb-2">
                 <span className="flex items-center underline tracking-wider">
-                  Lorem ipsum dolor sit.
+                  Why I Chose Next.js for Full Stack Development.
                 </span>
                 <p className="font-light text-sm mt-1">
-                  Lorem ipsum dolor sit amet.
+                  Discover how I transitioned from basic web development to l...
                 </p>
               </li>
             </Link>
-            <Link href="xxxxxxxxxxxxxxxxxxx">
+            <Link href="blog/tech-in-tdot/techtank-rsc">
               <li className="flex flex-col mb-2">
                 <span className="flex items-center underline tracking-wider">
-                  Lorem, ipsum dolor.
+                  Exploring React Server Components at TechTank's Meetup
                 </span>
                 <p className="font-light text-sm mt-1">
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
+                Join me as I break down the latest insights on React Server Co...
                 </p>
               </li>
             </Link>
