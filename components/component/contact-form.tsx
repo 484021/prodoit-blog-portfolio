@@ -12,7 +12,6 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { toast } from "react-toastify";
 
 export function ContactForm() {
   const [pending, setIsPending] = useState(false);
@@ -25,7 +24,7 @@ export function ContactForm() {
     e.preventDefault();
     //create formData
 
-    const name = e.currentTarget.name.value;
+    const name = e.currentTarget.name.valueOf;
     const email = e.currentTarget.email.value;
     const message = e.currentTarget.message.value;
 
