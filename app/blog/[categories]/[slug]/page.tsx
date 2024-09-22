@@ -71,7 +71,6 @@ export default function Page({
 
   return (
     <main className="">
-      <ReportViews category={post.metadata.category} title={post.metadata.title} slug={post.slug}/>
       {/* <script
         type="application/ld+json"
         suppressHydrationWarning
