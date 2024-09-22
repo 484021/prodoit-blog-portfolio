@@ -1,10 +1,11 @@
 import { Resend } from "resend";
 import * as React from "react";
 import { EmailTemplate } from "@/components/email-template";
+import { NextApiRequest } from "next";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(request) {
+export async function POST(request: NextApiRequest) {
   try {
     const { name, email, message } = await request.json();
     const { data, error } = await resend.emails.send({
@@ -17,7 +18,6 @@ export async function POST(request) {
         email,
       }) as React.ReactElement,
     });
-    
 
     if (error) {
       return Response.json({ error }, { status: 500 });

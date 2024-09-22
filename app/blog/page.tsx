@@ -1,5 +1,5 @@
 import LatestPosts from "@/components/blog-components/latest-post";
-import PopularPosts from "@/components/blog-components/popular-posts";
+// import PopularPosts from "@/components/blog-components/popular-posts";
 import TopCategories from "@/components/blog-components/top-categories";
 import Container from "@/components/Container";
 import React from "react";

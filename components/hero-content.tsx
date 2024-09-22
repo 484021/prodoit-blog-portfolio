@@ -59,10 +59,11 @@ export default function HeroContent() {
             <Link href="blog/tech-in-tdot/techtank-rsc">
               <li className="flex flex-col mb-2">
                 <span className="flex items-center underline tracking-wider">
-                  Exploring React Server Components at TechTank's Meetup
+                  Exploring React Server Components at TechTank Meetup
                 </span>
                 <p className="font-light text-sm mt-1">
-                Join me as I break down the latest insights on React Server Co...
+                  Join me as I break down the latest insights on React Server
+                  Co...
                 </p>
               </li>
             </Link>
