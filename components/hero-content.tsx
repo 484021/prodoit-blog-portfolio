@@ -1,4 +1,4 @@
-import { PaperPlaneIcon } from "@radix-ui/react-icons";
+import { LockOpen1Icon, PaperPlaneIcon } from "@radix-ui/react-icons";
 import { div } from "framer-motion/client";
 import Link from "next/link";
 import React from "react";
@@ -8,7 +8,12 @@ export default function HeroContent() {
     <section className="pt-7">
       <div className="grid grid-cols-2 gap-4 ">
         <div className="">
-          <div className="mb-3">Projects</div>
+          <Link href="/projects">
+            <div className="flex group hover:scale-100 transition">
+              <div className="mb-3">Projects</div>
+              <PaperPlaneIcon className="mt-1  text-violet-500  h-5 w-5 group-hover:translate-x-1 transition-all ml-1" />
+            </div>
+          </Link>
           <ul className="">
             <Link href="https://github.com/484021/petly" target="_blank">
               <li className="flex flex-col mb-2">
@@ -33,9 +38,14 @@ export default function HeroContent() {
             </Link>
           </ul>
         </div>
-        
+
         <div>
-          <div className="mb-3">Blog</div>
+            <Link href="/blog">
+          <div className="flex group">
+              <div className="mb-3">Blog</div>
+              <PaperPlaneIcon className="mt-1  text-violet-500  h-5 w-5 group-hover:translate-x-1 transition-all ml-1" />
+          </div>
+            </Link>
           <ul className="">
             <Link href="xxxxxxxxxx" target="_blank">
               <li className="flex flex-col mb-2">

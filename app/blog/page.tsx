@@ -8,14 +8,14 @@ export default function Blog() {
   return (
     <Container>
       <main className="max-w-[60ch] lg:min-w-[60ch] mx-auto w-full space-y-6 relative">
-        <div>
-          <LatestPosts />
-        </div>
-        <div className="">
           <div>
             <h1 className="font-bold mb-4">Categories</h1>
             <TopCategories />
           </div>
+        <div>
+          <LatestPosts />
+        </div>
+        <div className="">
           <div className="mt-10 sticky top-4">
             <h1 className="font-bold mb-4">POPULAR POSTS</h1>
             <PopularPosts />

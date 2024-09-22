@@ -8,13 +8,13 @@ import Footer from "@/components/footer";
 import Logo from "@/components/logo";
 import AnimatedNavBar from "@/components/animated-nav-bar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Santhosh Bhoopal",
-  description:
-    "Solving problems and building solutions",
+  description: "Solving problems and building solutions",
 };
 
 export default function RootLayout({
@@ -31,17 +31,17 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-       
           <Logo />
           {/* <Container> */}
-            {/* <MainNav /> */}
-            <AnimatedNavBar />
-            {children}
-            <ModeToggle />
-            <Footer />
+          {/* <MainNav /> */}
+          <AnimatedNavBar />
+          {children}
+          <ModeToggle />
+          <Footer />
           {/* </Container> */}
         </ThemeProvider>
       </body>
+      <GoogleAnalytics gaId="G-Y3Y1HDC9Q5" />
     </html>
   );
 }

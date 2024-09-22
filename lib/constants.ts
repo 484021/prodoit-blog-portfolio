@@ -1,18 +1,33 @@
 export const POSTS: { title: string; href: string; description: string }[] = [
   {
-    title: "Tech In T.O.",
+    title: "Tech In tDot",
     href: "/blog/tech-in-to",
     description:
       "All the cool tech related things in Toronto",
   },
   {
-    title: "Notes",
-    href: "/blog/notes",
+    title: "Next.js (React)",
+    href: "/blog/next-js",
     description: "Sharing my notes while I'm learning new things.",
   },
   {
-    title: "Me",
-    href: "/blog/me",
+    title: "JavaScript",
+    href: "/blog/javascript",
+    description: "Random stuff about me.",
+  },
+  {
+    title: "DSA",
+    href: "/blog/data-structures-and-algorithms",
+    description: "Random stuff about me.",
+  },
+  {
+    title: "System Design",
+    href: "/blog/system-design",
+    description: "Random stuff about me.",
+  },
+  {
+    title: "DevOps",
+    href: "/blog/system-design",
     description: "Random stuff about me.",
   },
   // {

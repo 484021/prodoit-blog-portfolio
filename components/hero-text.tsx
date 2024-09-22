@@ -7,7 +7,7 @@ export default function HeroText() {
         <span className="">Santhosh Bhoopal</span>
       </h1>
       <div className="mb-6 flex flex-col gap-2">
-        <div className="flex items-center gap-3 text-zinc-700 dark:text-zinc-300">
+        <div className="flex items-center gap-3 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -18,14 +18,14 @@ export default function HeroText() {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            className="h-5 w-5"
+            className="h-5 w-5 text-blue-300 dark:text-blue-700"
           >
             <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
           <p>Canada</p>
         </div>
-        <div className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300">
+        <div className="flex items-center gap-3 ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -36,7 +36,7 @@ export default function HeroText() {
             stroke-width="2"
             stroke-linecap="round"
             stroke-linejoin="round"
-            className="h-5 w-5"
+            className="h-5 w-5 text-amber-300 dark:text-amber-700"
           >
             <path d="M12 12h.01"></path>
             <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path>
@@ -59,8 +59,8 @@ export default function HeroText() {
         <span className="text-blue-300">React, </span>
         <span className="text-blue-600">Typescript, </span>
         <span className="font-medium">Prisma </span>and{" "}
-        <span className="text-[#336791]">Postgres</span>, I’m always looking
-        for ways to level up my craft.
+        <span className="text-[#336791]">Postgres</span>, I’m always looking for
+        ways to level up my craft.
       </p>
       <p className="font-light">
         Outside of coding, you’ll find me watching anime, reading manga, playing
