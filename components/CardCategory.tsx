@@ -18,9 +18,9 @@ export default function CardCategory({
 }) {
   return (
     <div>
-      <Card className="w-[350px] h-full shadow-lg hover:scale-105 transition">
+      <Card className="w-[345px] h-full shadow-lg hover:scale-105 transition">
         <CardHeader>
-          <CardTitle>{title}</CardTitle>
+          <CardTitle className="leading-5">{title}</CardTitle>
         </CardHeader>
         <CardContent>
           <p className="font-light">{summary}</p>

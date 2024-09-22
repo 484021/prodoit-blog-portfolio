@@ -65,6 +65,50 @@ export default function Page({ params }: { params: { categories: string } }) {
                 />
               </Link>
             ))}
+          {posts
+            .sort((a, b) => {
+              if (
+                new Date(a.metadata.publishedAt) >
+                new Date(b.metadata.publishedAt)
+              ) {
+                return -1;
+              }
+              return 1;
+            })
+            .map((post) => (
+              <Link
+                href={`/blog/${post.metadata.category}/${post.slug}`}
+                key={Math.random()}
+              >
+                <CardCategory
+                  title={post.metadata.title}
+                  summary={post.metadata.summary}
+                  date={post.metadata.publishedAt}
+                />
+              </Link>
+            ))}
+          {posts
+            .sort((a, b) => {
+              if (
+                new Date(a.metadata.publishedAt) >
+                new Date(b.metadata.publishedAt)
+              ) {
+                return -1;
+              }
+              return 1;
+            })
+            .map((post) => (
+              <Link
+                href={`/blog/${post.metadata.category}/${post.slug}`}
+                key={Math.random()}
+              >
+                <CardCategory
+                  title={post.metadata.title}
+                  summary={post.metadata.summary}
+                  date={post.metadata.publishedAt}
+                />
+              </Link>
+            ))}
         </div>
       </main>
     </Container>
