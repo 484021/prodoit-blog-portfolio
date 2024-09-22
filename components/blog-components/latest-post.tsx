@@ -5,9 +5,7 @@ export default function LatestPosts() {
   const latestPosts = getBlogPosts();
   return (
     <>
-      <h1 className="inline-block font-semibold tracking-wide">
-        Recent
-      </h1>
+      <h1 className="inline-block font-semibold tracking-wide">Recent</h1>
       {latestPosts
         .sort((a, b) => {
           if (
@@ -18,7 +16,7 @@ export default function LatestPosts() {
           return 1;
         })
         .map((post) => (
-          <article key={post.slug} className="text-wrap mt-3">
+          <article key={Math.random()} className="text-wrap mt-3">
             <Link href={`/blog/${post.metadata.category}/${post.slug}`}>
               <h3 className="font-medium leading-5 underline decoration-violet-400 hover:text-violet-500">
                 {post.metadata.title}

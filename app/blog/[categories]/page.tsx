@@ -29,14 +29,20 @@ export default function Page({ params }: { params: { categories: string } }) {
   if (!posts.length) {
     notFound();
   }
+
+  //conver slug title into real title and remove hypens and add spaces etc...
+  const title = posts[0].metadata.category
+    .replace(/-/g, " ")
+    .toLocaleUpperCase();
+
   return (
     <Container>
-      <main className="w-full">
+      <main className="flex flex-col items-start justify-evenly md:flex-row">
         <h1 className="title font-semibold tracking-wider capitalize">
-          {posts[0]?.metadata.category}
+          {title}
         </h1>
 
-        <div className=" flex flex-wrap gap-2 mt-7">
+        <div className=" flex flex-wrap gap-2 mt-16">
           {posts
             .sort((a, b) => {
               if (
@@ -50,7 +56,7 @@ export default function Page({ params }: { params: { categories: string } }) {
             .map((post) => (
               <Link
                 href={`/blog/${post.metadata.category}/${post.slug}`}
-                key={post.slug}
+                key={Math.random()}
               >
                 <CardCategory
                   title={post.metadata.title}
@@ -59,7 +65,6 @@ export default function Page({ params }: { params: { categories: string } }) {
                 />
               </Link>
             ))}
-     
         </div>
       </main>
     </Container>

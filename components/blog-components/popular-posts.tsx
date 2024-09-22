@@ -8,10 +8,10 @@ import Link from "next/link";
 // import SkeletonCard from "@/components/skeleton/popular_posts_skeleton";
 
 export default function PopularPosts() {
-//   const { data, error, isLoading } = useSWR(fetchUrl, fetcher);
+  //   const { data, error, isLoading } = useSWR(fetchUrl, fetcher);
 
-//   if (error) return <div>Failed to load</div>;
-//   if (isLoading) return <SkeletonCard />;
+  //   if (error) return <div>Failed to load</div>;
+  //   if (isLoading) return <SkeletonCard />;
 
   return (
     <ul className="">
@@ -23,16 +23,14 @@ export default function PopularPosts() {
           </li>
         </Link>
       ))} */}
-      {
-        popularPosts.map((post) => (
-          <Link href={`/blog/`} key={post.title}>
-            <li className="flex items-center gap-2 group cursor-pointer py-2">
-              <Icons.arrowRight className="h-6 w-6 group-hover:translate-x-1 transition-all" />
-              <p>{post.title}</p>
-            </li>
-          </Link>
-        ))
-      }
+      {popularPosts.map((post) => (
+        <Link href={`/blog/`} key={post.title}>
+          <li className="flex items-center gap-2 group cursor-pointer py-2">
+            <Icons.arrowRight className="h-6 w-6 group-hover:translate-x-1 transition-all" />
+            <p>{post.title}</p>
+          </li>
+        </Link>
+      ))}
     </ul>
   );
 }

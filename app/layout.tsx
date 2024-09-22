@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Inter } from "next/font/google";
-import Container from "@/components/Container";
-import { MainNav } from "@/components/main-nav";
+
 import Footer from "@/components/footer";
 import Logo from "@/components/logo";
 import AnimatedNavBar from "@/components/animated-nav-bar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import ActiveSectionContextProvider from "@/context/active-section-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,13 +32,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Logo />
-          {/* <Container> */}
-          {/* <MainNav /> */}
           <AnimatedNavBar />
           {children}
           <ModeToggle />
           <Footer />
-          {/* </Container> */}
         </ThemeProvider>
       </body>
       <GoogleAnalytics gaId="G-Y3Y1HDC9Q5" />

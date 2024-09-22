@@ -17,7 +17,7 @@ export default function Blog() {
         </div>
         <div className="">
           <div className="mt-10 sticky top-4">
-            <h1 className="font-bold mb-4">POPULAR POSTS</h1>
+            <h1 className="font-bold mb-4">Trending</h1>
             <PopularPosts />
           </div>
         </div>

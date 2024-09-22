@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import petly from "@/lib/assets/petly.png";
 import nestio from "@/lib/assets/nestio.png";
@@ -16,8 +15,7 @@ const projects = [
   },
   {
     title: "Nestio",
-    description:
-      "Poperty managment app to connect owners and renters.",
+    description: "Poperty managment app to connect owners and renters.",
     link: "https://github.com/484021/nestio",
     image: nestio,
   },
@@ -51,8 +49,8 @@ export default function Component() {
             </p>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {projects.map((project, index) => (
-              <Link href={project.link}>
+            {projects.map((project) => (
+              <Link href={project.link} key={Math.random()}>
                 <div className="overflow-hidden rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-2xl dark:shadow-white/20 dark:hover:shadow-white/30 animate-fade-in-up">
                   <div className="relative">
                     <Image
@@ -62,6 +60,7 @@ export default function Component() {
                       height={400}
                       className="h-48 w-full object-cover border-b"
                       style={{ aspectRatio: "600/400", objectFit: "cover" }}
+                      priority
                     />
                   </div>
                   <div className="p-4 bg-card text-card-foreground">

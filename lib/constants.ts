@@ -1,9 +1,8 @@
 export const POSTS: { title: string; href: string; description: string }[] = [
   {
     title: "Tech In tDot",
-    href: "/blog/tech-in-to",
-    description:
-      "All the cool tech related things in Toronto",
+    href: "/blog/tech-in-tdot",
+    description: "All the cool tech related things in Toronto",
   },
   {
     title: "Next.js (React)",
@@ -63,8 +62,7 @@ export const projectCategories: {
   {
     title: "Data Structures and Algorithms",
     href: "/projects/dsa",
-    description:
-      "Implementations of data structures and algorithms.",
+    description: "Implementations of data structures and algorithms.",
   },
   {
     title: "Games",
@@ -81,13 +79,12 @@ export const projectCategories: {
   {
     title: "E-Commerce Platforms",
     href: "/projects/ecommerce",
-    description: "Custom online stores focused on scalability and performance."
+    description: "Custom online stores focused on scalability and performance.",
   },
   {
     title: "API Development",
     href: "/projects/apis",
-    description: "Robust, scalable APIs for data integration and communication."
-  }
-  
+    description:
+      "Robust, scalable APIs for data integration and communication.",
+  },
 ];
-

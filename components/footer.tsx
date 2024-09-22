@@ -1,8 +1,8 @@
 "use client";
 
-import { POSTS } from "@/lib/constants";
 // import { POSTS } from "@/lib/constants";
-import { Icons } from "./icons";
+// // import { POSTS } from "@/lib/constants";
+// import { Icons } from "./icons";
 import Link from "next/link";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
 // import { Input } from "./ui/input";

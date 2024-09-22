@@ -26,7 +26,6 @@ export type TextEffectProps = {
   segmentWrapperClassName?: string;
 };
 
-
 const defaultStaggerTimes: Record<"char" | "word" | "line", number> = {
   char: 0.03,
   word: 0.05,
