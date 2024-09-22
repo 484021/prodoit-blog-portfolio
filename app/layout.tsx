@@ -8,7 +8,6 @@ import Logo from "@/components/logo";
 import AnimatedNavBar from "@/components/animated-nav-bar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import ActiveSectionContextProvider from "@/context/active-section-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
