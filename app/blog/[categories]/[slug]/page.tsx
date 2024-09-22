@@ -4,7 +4,6 @@ import { formatDate, getBlogPosts } from "../../utils";
 import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import { CustomMDX } from "@/components/mdx";
-import ReportViews from "@/components/ReportViews";
 // import { main } from "framer-motion/client";
 // import ReportViews from "@/components/ReportViews";
 // import { baseUrl } from "@/app/sitemap";
