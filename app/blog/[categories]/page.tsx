@@ -37,7 +37,7 @@ export default function Page({ params }: { params: { categories: string } }) {
 
   return (
     <Container>
-      <main className="flex flex-col items-start justify-evenly md:flex-row">
+      <main className="container mx-auto">
         <h1 className="title font-semibold tracking-wider capitalize">
           {title}
         </h1>
@@ -62,9 +62,11 @@ export default function Page({ params }: { params: { categories: string } }) {
                   title={post.metadata.title}
                   summary={post.metadata.summary}
                   date={post.metadata.publishedAt}
+                  
                 />
               </Link>
             ))}
+
         </div>
       </main>
     </Container>

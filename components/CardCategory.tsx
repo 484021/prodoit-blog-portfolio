@@ -18,7 +18,7 @@ export default function CardCategory({
 }) {
   return (
     <div>
-      <Card className="w-[345px] h-full shadow-lg hover:scale-105 transition">
+      <Card className="w-[340px] h-full shadow-lg hover:scale-105 transition mx-auto">
         <CardHeader>
           <CardTitle className="leading-5">{title}</CardTitle>
         </CardHeader>

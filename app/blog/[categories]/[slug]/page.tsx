@@ -4,6 +4,7 @@ import { formatDate, getBlogPosts } from "../../utils";
 import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import { CustomMDX } from "@/components/mdx";
+import ReportViews from "@/components/ReportViews";
 // import { main } from "framer-motion/client";
 // import ReportViews from "@/components/ReportViews";
 // import { baseUrl } from "@/app/sitemap";
@@ -70,6 +71,7 @@ export default function Page({
 
   return (
     <main className="">
+      <ReportViews category={post.metadata.category} title={post.metadata.title} slug={post.slug}/>
       {/* <script
         type="application/ld+json"
         suppressHydrationWarning
