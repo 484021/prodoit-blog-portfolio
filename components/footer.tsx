@@ -142,7 +142,7 @@ export default function Footer() {
     //   </div>
     // </footer>
 
-    <footer className="text-center mb-5 mt-10">
+    <footer className="text-center mb-12 mt-12">
       <div className=" flex justify-center space-x-4 tracking-tight">
         <div className="flex items-center group focus:scale-110 hover:scale-110 active:scale-105 transition hover:-translate-y-1">
           <Link href="https://www.linkedin.com/in/sanbho/">linkedin</Link>
@@ -153,11 +153,11 @@ export default function Footer() {
           <ArrowTopRightIcon className=" text-violet-500  h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
         </div>
       </div>
-      <div className="mt-12 mb-5">
+      {/* <div className="mt-12 mb-5">
         <Link href="/rss">
           <RssIcon className="mx-auto hover:scale-110 hover:text-orange-500" />
         </Link>
-      </div>
+      </div> */}
     </footer>
   );
 }
