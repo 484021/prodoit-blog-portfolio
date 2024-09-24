@@ -7,14 +7,40 @@ import Logo from "@/components/logo";
 import AnimatedNavBar from "@/components/animated-nav-bar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import { Analytics } from "@vercel/analytics/react"
-import { Toaster } from "@/components/ui/toaster"
+import { Analytics } from "@vercel/analytics/react";
+import { Toaster } from "@/components/ui/toaster";
+import { siteConfig } from "@/config/site";
+import { keywords } from "@/lib/constants";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Santhosh Bhoopal",
-  description: "Solving problems and building solutions",
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  keywords: keywords,
+  authors: [{ name: "Santhosh Bhoopal", url: "https://github.com/484021" }],
+  creator: "Santhosh Bhoopal",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images:[`${siteConfig.url}/og`],
+    creator: "@santhosh_code",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

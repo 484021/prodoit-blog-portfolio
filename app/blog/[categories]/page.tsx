@@ -4,22 +4,26 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import CardCategory from "@/components/CardCategory";
 
-// export async function generateStaticParams() {
-//   const posts = getBlogPosts();
+export async function generateStaticParams() {
+  const posts = getBlogPosts();
 
-//   return posts.map((post) => ({
-//     category: post.metadata.category,
-//   }));
-// }
+  return posts.map((post) => ({
+    category: post.metadata.category,
+  }));
+}
 
-// export function generateMetadata({ params }: { params: { category: string } }) {
-//   const { category } = params;
+export function generateMetadata({
+  params,
+}: {
+  params: { categories: string };
+}) {
+  const { categories: category } = params;
 
-//   return {
-//     title: category.toLocaleUpperCase(),
-//     description: `All articles reagarding ${category}`,
-//   };
-// }
+  return {
+    title: category.charAt(0).toUpperCase() + category.slice(1),
+    description: `All articles regarding ${category}`,
+  };
+}
 
 export default function Page({ params }: { params: { categories: string } }) {
   const posts = getBlogPosts().filter(
@@ -62,14 +66,11 @@ export default function Page({ params }: { params: { categories: string } }) {
                   title={post.metadata.title}
                   summary={post.metadata.summary}
                   date={post.metadata.publishedAt}
-                  
                 />
               </Link>
             ))}
-
         </div>
       </main>
     </Container>
   );
 }
-
