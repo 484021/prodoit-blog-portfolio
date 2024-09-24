@@ -5,7 +5,7 @@
 // import { Icons } from "./icons";
 import Link from "next/link";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
-import { RssIcon } from "lucide-react";
+// import { RssIcon } from "lucide-react";
 // import { Input } from "./ui/input";
 // import { Button } from "./ui/button";
 // import { createSubscriber } from "@/lib/actions";
