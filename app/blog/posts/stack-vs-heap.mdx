@@ -1,0 +1,138 @@
+---
+title: "What I Learned Today: Primitive vs. Reference Types, Stack vs. Heap"
+publishedAt: "2024-09-24"
+summary: "Learn the difference between primitive and reference types, how JavaScript handles memory with stack and heap, and the magic behind JavaScript's .toString() method."
+category: "javascript"
+---
+
+## Table of Contents
+
+1. [Introduction: My Struggles with Primitive vs. Reference Types](#introduction-my-struggles-with-primitive-vs-reference-types)
+2. [Primitive vs. Reference Types Explained](#primitive-vs-reference-types-explained)
+   - [Primitive Types: The Snack Packs of JavaScript](#primitive-types-the-snack-packs-of-javascript)
+   - [Reference Types: Tupperware in the Fridge](#reference-types-tupperware-in-the-fridge)
+3. [The Stack vs. The Heap: Where JavaScript Stores Your Data](#the-stack-vs-the-heap-where-javascript-stores-your-data)
+   - [Stack: Fast and Simple](#stack-fast-and-simple)
+   - [Heap: Big, Flexible Storage](#heap-big-flexible-storage)
+4. [Why JavaScript Wraps Numbers (and Other Primitives) Into Objects](#why-javascript-wraps-numbers-and-other-primitives-into-objects)
+   - [The Sneaky .toString() Method](#the-sneaky-tostring-method)
+5. [Common Pitfall: Modifying Reference Types](#common-pitfall-modifying-reference-types)
+   - [Realizing Objects Are Just References](#realizing-objects-are-just-references)
+6. [Key Takeaways](#key-takeaways)
+   - [Primitive Types Stay Independent](#primitive-types-stay-independent)
+   - [Reference Types Share Memory](#reference-types-share-memory)
+   - [JavaScript's Sneaky Number-to-Object Move](#javascripts-sneaky-number-to-object-move)
+7. [Encouragement: Don’t Sweat It, You Got This!](#encouragement-dont-sweat-it-you-got-this)
+
+## Introduction: My Struggles with Primitive vs. Reference Types
+
+Alright, I’ll admit it—when I first encountered primitive and reference types in JavaScript, my brain did a little somersault. “Wait, what do you mean, some things are stored on a stack and others on a heap? And why does it matter?” Yeah, it was one of those moments. 😅
+
+But once I got the hang of it, things started to click. And let me tell you, understanding **primitive** vs **reference types** is super helpful when debugging those pesky issues where your variables aren’t behaving as expected.
+
+## Primitive vs. Reference Types Explained
+
+JavaScript loves to categorize data into two camps: **primitive types** and **reference types**. They’re not just different in name—they’re actually stored differently in memory, and this can totally change how your code behaves.
+
+### Primitive Types: The Snack Packs of JavaScript
+
+Think of primitive types (like `number`, `string`, `boolean`, etc.) as snack packs. When you open one, it’s just for you. They live in their little stack of memory, and every time you use or copy them, you get a fresh one—like getting a new snack pack every time. 🍫
+
+Example:
+
+```javascript
+let a = 42;
+let b = a; // Copying a into b
+b = 100;
+
+console.log(a); // Still 42!
+console.log(b); // 100
+```
+
+No surprises here. `a` and `b` are separate, individual values.
+
+### Reference Types: Tupperware in the Fridge
+
+Now, reference types (like `objects` and `arrays`) are more like Tupperware in your fridge. You can have one big container, and everyone who reaches in is getting stuff from the same container. 🥗
+
+Example:
+
+```javascript
+let obj1 = { name: "Chris" };
+let obj2 = obj1; // Both point to the same object
+
+obj2.name = "Alex"; // Changing obj2 also changes obj1
+
+console.log(obj1.name); // 'Alex'
+```
+
+See that? Changing `obj2` changed `obj1` too, because they both reference the same object in memory. One Tupperware, shared contents.
+
+## The Stack vs. The Heap: Where JavaScript Stores Your Data
+
+Okay, so we’ve got primitive types stored on the **stack** and reference types stored on the **heap**. But what does that actually mean?
+
+### Stack: Fast and Simple
+
+The **stack** is like a cafeteria line—quick, orderly, and everything’s taken in the same order it’s placed. Primitives live here because they’re simple and predictable in size.
+
+### Heap: Big, Flexible Storage
+
+The **heap**, on the other hand, is like your fridge—lots of space, but a bit more chaotic. You have to open the door and search for what you want. Reference types go in the heap because they’re more complex and can grow in size.
+
+## Why JavaScript Wraps Numbers (and Other Primitives) Into Objects
+
+Here’s where JavaScript gets sneaky. Ever wonder how you can call `.toString()` on a number like this?
+
+```javascript
+let num = 42;
+console.log(num.toString()); // '42'
+```
+
+Wait, isn’t `num` a primitive type? How does it have a method? 🤔
+
+### The Sneaky .toString() Method
+
+JavaScript does something cool behind the scenes: it temporarily **wraps** the number into an object so you can use methods like `.toString()`. It’s kind of like putting on a fancy jacket for a second before taking it off and going back to being a plain old number. 😎
+
+## Common Pitfall: Modifying Reference Types
+
+One thing that really tripped me up when I first learned about reference types was how changing one variable seemed to magically affect another. Turns out, this happens because **both variables are pointing to the same object in memory**.
+
+### Realizing Objects Are Just References
+
+When you pass around objects, you’re passing **references** to the object, not the actual object itself. So when you modify it, you’re modifying the same thing that’s being referenced elsewhere.
+
+```javascript
+let arr1 = [1, 2, 3];
+let arr2 = arr1;
+
+arr2.push(4);
+
+console.log(arr1); // [1, 2, 3, 4]
+console.log(arr2); // [1, 2, 3, 4]
+```
+
+Both `arr1` and `arr2` reference the same array. Change one, and you change both.
+
+## Key Takeaways
+
+If your head is spinning, don’t worry—I totally remember struggling with this stuff too. Here’s a quick recap:
+
+### Primitive Types Stay Independent
+
+Primitives (numbers, strings, booleans, etc.) are stored on the **stack**. They’re independent little values that don’t affect each other when copied.
+
+### Reference Types Share Memory
+
+Objects and arrays are stored on the **heap**. They’re like Tupperware containers that everyone can dip into, so modifying them in one place will affect them everywhere.
+
+### JavaScript's Sneaky Number-to-Object Move
+
+When you call a method like `.toString()` on a number or other primitive, JavaScript temporarily wraps it in an object so it can use methods. Pretty slick, right?
+
+## Encouragement: Don’t Sweat It, You Got This!
+
+This stuff tripped me up at first too, so if it’s not clicking right away, don’t sweat it. The more you experiment, the more it’ll start to make sense. And remember—**it’s okay to get stuck**. That’s part of the learning process!
+
+You got this! 💪 Keep coding, keep learning, and feel free to reach out if you need help!

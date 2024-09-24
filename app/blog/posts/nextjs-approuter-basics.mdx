@@ -1,0 +1,154 @@
+---
+title: "The Basics of Next.js App Router That Every Dev Should Know"
+publishedAt: "2024-09-23"
+summary: "Next.js's App Router can be tricky at first, but let’s break it down step by step. In this guide, we’ll cover the essentials you need to know to navigate your Next.js apps with ease!"
+category: "next-js"
+---
+
+# The Basics of Next.js App Router That Every Dev Should Know
+
+Alright, let’s be real—I remember when I first got into Next.js and stumbled upon the App Router. My reaction? 🤯 I thought to myself, "Isn't routing supposed to be the easy part?" But like most things in web development, it all made sense once I sat down and broke it apart. So, grab your coffee (or tea, no judgment) and let's dive into the fundamentals of the Next.js App Router!
+
+---
+
+
+
+## Table of Contents
+
+1. [What is the Next.js App Router?](#1.-what-is-the-next.js-app-router?)
+2. [Pages vs. App Router](#2.-pages-vs.-app-router)
+3. [Dynamic Routing](#3.-dynamic-routing)
+4. [Linking Between Pages](#4.-linking-between-pages)
+5. [Layouts and Nested Routes](#5.-layouts-and-nested-routes)
+6. [Common Pitfalls](#6.-common-pitfalls)
+7. [Notes](#7.-notes)
+8. [Summary](#8.-summary)
+
+
+---
+
+## 1. What is the Next.js App Router?
+
+I totally remember struggling with this when I first opened a Next.js project. So, what exactly is the Next.js App Router? 
+
+Here’s a simple way to think about it: **Next.js App Router** is the way you organize your pages and handle navigation between them. It's essentially the blueprint of how your app knows what to render when the user visits different URLs.
+
+In Next.js, routing is file-based. So, if you create a file inside the `/pages` or `/app` folder, that file will automatically become a route. For example, a file named `about.js` in your `pages` folder will generate a route like `yourapp.com/about`. Super cool, right?
+
+### Why It’s Awesome
+
+- **No need for a separate routing library:** Unlike React, where you typically rely on something like `react-router`, Next.js handles routes right out of the box.
+- **Dynamic routing support:** You can build routes dynamically (more on this later!).
+
+---
+
+## 2. Pages vs. App Router
+
+If you’re coming from an older version of Next.js, you might remember the traditional **Pages** directory. Well, Next.js 13+ introduced the **App Router** which expands on that concept in some important ways.
+
+- **Pages Directory**: Classic, simple. You stick your `.js` files under `/pages`, and boom, each one is a route. But it's kinda limited in how you handle layouts and components.
+- **App Router**: The new kid on the block. This is where the magic happens. Now, you can define **Layouts**, **Loading States**, **Error Boundaries**, and nested routes more flexibly.
+
+> **Note:** Don't worry if you're still using the `pages` directory—it's not going anywhere just yet! But the `app` directory is the future.
+
+---
+
+## 3. Dynamic Routing
+
+This tripped me up at first, but here’s how I figured it out: Dynamic routes in Next.js let you create URLs that change based on user input or data.
+
+Here’s an example:
+
+```js
+// [id].js inside your pages folder
+import { useRouter } from 'next/router';
+
+const Post = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  return <p>Post: {id}</p>;
+};
+
+export default Post;
+```
+
+In this case, a route like `/post/1` will render with `id` equal to `1`. Pretty neat, huh?
+
+> **Tip:** File names surrounded by square brackets, like `[id].js`, tell Next.js that this route is dynamic.
+
+---
+
+## 4. Linking Between Pages
+
+Now that you’ve set up routes, you need to navigate between them. Next.js provides the `<Link>` component to make this easy and optimize performance.
+
+```js
+import Link from 'next/link';
+
+export default function Home() {
+  return (
+    <div>
+      <h1>Welcome to Next.js</h1>
+      <Link href="/about">
+        <a>Go to About Page</a>
+      </Link>
+    </div>
+  );
+}
+```
+
+What’s cool here is Next.js automatically preloads pages linked with the `<Link>` component, giving you fast navigation.
+
+---
+
+## 5. Layouts and Nested Routes
+
+One of the best parts about the App Router is how easy it makes managing layouts. Let's say you want to have the same header or sidebar on multiple pages—you can create a layout that wraps your components.
+
+```js
+// app/layout.js
+export default function Layout({ children }) {
+  return (
+    <>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
+}
+```
+
+You can use this layout for your whole app, or even have different layouts for different parts of your site.
+
+---
+
+## 6. Common Pitfalls
+
+I know, you’re thinking, “Okay, this sounds awesome, but what’s the catch?” Like anything in development, there are a few common pitfalls to be aware of:
+
+- **Not Using Dynamic Routes Correctly**: Make sure to place dynamic files in the right folders (like `pages/[id].js`).
+- **Preloading Resources**: Sometimes `<Link>` doesn’t preload as expected if used inside conditional logic. Double-check your usage if something feels off.
+- **Client vs Server Confusion**: Knowing when your code runs on the client versus the server can be tricky. Just remember, anything Next.js pre-fetches is server-side, while interactivity is client-side.
+
+---
+
+## 7. Notes
+
+- The Next.js App Router is file-based, which makes it super intuitive once you get the hang of it. It’s all about leveraging the structure of your app to handle navigation.
+- Layouts and nested routing give you a ton of flexibility for complex apps, and dynamic routing is a game-changer for things like blogs, portfolios, or e-commerce.
+- If you're just starting out, don’t worry if this doesn’t make sense right away. Practice makes perfect!
+
+---
+
+## 8. Summary
+
+To recap, here’s what we covered:
+
+- **Next.js App Router** simplifies routing by using a file-based system.
+- The **App Router** allows for more flexibility than the **Pages Directory**, particularly with layouts and error handling.
+- **Dynamic routes** let you handle changing data in your URLs.
+- **Linking** between pages is a breeze with the `<Link>` component, which also preloads pages for a smoother user experience.
+- And finally, there are a few pitfalls to avoid, but don’t let them scare you off!
+
+It’s okay to get stuck—that’s part of learning. You got this!
