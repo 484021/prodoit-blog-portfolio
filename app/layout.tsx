@@ -7,6 +7,7 @@ import Logo from "@/components/logo";
 import AnimatedNavBar from "@/components/animated-nav-bar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
+      <Analytics />
       <GoogleAnalytics gaId="G-Y3Y1HDC9Q5" />
     </html>
   );
