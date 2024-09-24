@@ -12,21 +12,30 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/hooks/use-toast";
 
 export function ContactForm() {
+  type FormData = {
+    name: string;
+    email: string;
+    message: string;
+  };
+
   const [pending, setIsPending] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     message: "",
   });
+
+  const { toast } = useToast();
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     //create formData
 
-    const name = e.currentTarget.name.valueOf;
-    const email = e.currentTarget.email.value;
-    const message = e.currentTarget.message.value;
+    const name = formData.name;
+    const email = formData.email;
+    const message = formData.message;
 
     setIsPending(true);
     try {
@@ -35,7 +44,11 @@ export function ContactForm() {
         body: JSON.stringify({ name, email, message }),
       });
       if (res.ok) {
-        alert("Message sent successfully will change into toast soon!");
+        setFormData({ name: "", email: "", message: "" });
+        toast({
+          title: "Email sent!",
+          description: "I'll get back to you as soon as possible.",
+        });
 
         setIsPending(false);
       }
@@ -61,12 +74,23 @@ export function ContactForm() {
             <Input
               id="name"
               placeholder="Enter your name"
-
+              value={formData.name}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setFormData({ ...formData, name: e.target.value });
+              }}
             />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="Enter your email" />
+            <Input
+              id="email"
+              type="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setFormData({ ...formData, email: e.target.value });
+              }}
+            />
           </div>
           <div className="grid gap-2">
             <Label htmlFor="message">Message</Label>
@@ -74,6 +98,10 @@ export function ContactForm() {
               id="message"
               placeholder="Enter your message"
               className="min-h-[120px] resize-none "
+              value={formData.message}
+              onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {
+                setFormData({ ...formData, message: e.target.value });
+              }}
             />
           </div>
           <CardFooter className="flex justify-end">

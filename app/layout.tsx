@@ -8,6 +8,7 @@ import AnimatedNavBar from "@/components/animated-nav-bar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react"
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,6 +37,7 @@ export default function RootLayout({
           <ModeToggle />
           <Footer />
         </ThemeProvider>
+        <Toaster />
       </body>
       <Analytics />
       <GoogleAnalytics gaId="G-Y3Y1HDC9Q5" />
