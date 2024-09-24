@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import { CustomMDX } from "@/components/mdx";
 import { baseUrl } from "@/app/sitemap";
+import Script from "next/script";
 // import { main } from "framer-motion/client";
 // import ReportViews from "@/components/ReportViews";
 // import { baseUrl } from "@/app/sitemap";
@@ -71,7 +72,8 @@ export default function Page({
 
   return (
     <main className="">
-      {/* <script
+      <Script
+        id="schema"
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
@@ -88,16 +90,12 @@ export default function Page({
             url: `${baseUrl}/blog/${post.metadata.category}/${post.slug}`,
             author: {
               "@type": "Person",
-              name: "Coding Jitsu Blog",
+              name: "Santhosh Bhoopal Portfolio Blog",
             },
           }),
         }}
       />
-      <ReportViews
-        category={post.metadata.category}
-        title={post.metadata.title}
-        slug={post.slug}
-      /> */}
+
       <Container>
         <div className="mt-7">
           <BreadcrumbWithCustomSeparator
