@@ -9,13 +9,13 @@ import Link from "next/link";
 const projects = [
   {
     title: "Petly",
-    description: "Pet managment app for pet daycare owners.",
+    description: "Pet management app for pet daycare owners.",
     link: "https://github.com/484021/petly",
     image: petly,
   },
   {
     title: "Nestio",
-    description: "Poperty managment app to connect owners and renters.",
+    description: "Property management app to connect owners and renters.",
     link: "https://github.com/484021/nestio",
     image: nestio,
   },
@@ -27,7 +27,7 @@ const projects = [
   },
   {
     title: "Lili Sabor Latino",
-    description: "A vibrant latino food truck's marketing website.",
+    description: "A vibrant Latino food truck's marketing website.",
     link: "https://github.com/484021/LiliSaborLatino",
     image: lilisabor,
   },
