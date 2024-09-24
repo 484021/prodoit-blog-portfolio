@@ -5,6 +5,7 @@
 // import { Icons } from "./icons";
 import Link from "next/link";
 import { ArrowTopRightIcon } from "@radix-ui/react-icons";
+import { RssIcon } from "lucide-react";
 // import { Input } from "./ui/input";
 // import { Button } from "./ui/button";
 // import { createSubscriber } from "@/lib/actions";
@@ -141,7 +142,7 @@ export default function Footer() {
     //   </div>
     // </footer>
 
-    <footer className="text-center mb-5">
+    <footer className="text-center mb-5 mt-10">
       <div className=" flex justify-center space-x-4 tracking-tight">
         <div className="flex items-center group focus:scale-110 hover:scale-110 active:scale-105 transition hover:-translate-y-1">
           <Link href="https://www.linkedin.com/in/sanbho/">linkedin</Link>
@@ -151,6 +152,11 @@ export default function Footer() {
           <Link href="https://github.com/484021">github</Link>
           <ArrowTopRightIcon className=" text-violet-500  h-5 w-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
         </div>
+      </div>
+      <div className="mt-12 mb-5">
+        <Link href="/rss">
+          <RssIcon className="mx-auto hover:scale-110 hover:text-orange-500" />
+        </Link>
       </div>
     </footer>
   );
