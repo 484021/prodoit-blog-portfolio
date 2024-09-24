@@ -24,6 +24,25 @@ category: "javascript"
    - [JavaScript's Sneaky Number-to-Object Move](#javascripts-sneaky-number-to-object-move)
 7. [Encouragement: Don’t Sweat It, You Got This!](#encouragement-dont-sweat-it-you-got-this)
 
+## Table of Contents
+
+1. [Introduction: My Struggles with Primitive vs. Reference Types](#introduction-my-struggles-with-primitive-vs-reference-types)
+2. [Primitive vs. Reference Types Explained](#primitive-vs-reference-types-explained)
+   - [Primitive Types: The Snack Packs of JavaScript](#primitive-types-the-snack-packs-of-javascript)
+   - [Reference Types: Tupperware in the Fridge](#reference-types-tupperware-in-the-fridge)
+3. [The Stack vs. The Heap: Where JavaScript Stores Your Data](#the-stack-vs-the-heap-where-javascript-stores-your-data)
+   - [Stack: Fast and Simple](#stack-fast-and-simple)
+   - [Heap: Big, Flexible Storage](#heap-big-flexible-storage)
+4. [Why JavaScript Wraps Numbers (and Other Primitives) Into Objects](#why-javascript-wraps-numbers-and-other-primitives-into-objects)
+   - [The Sneaky .toString() Method](#the-sneaky-tostring-method)
+5. [Common Pitfall: Modifying Reference Types](#common-pitfall-modifying-reference-types)
+   - [Realizing Objects Are Just References](#realizing-objects-are-just-references)
+6. [Key Takeaways](#key-takeaways)
+   - [Primitive Types Stay Independent](#primitive-types-stay-independent)
+   - [Reference Types Share Memory](#reference-types-share-memory)
+   - [JavaScript's Sneaky Number-to-Object Move](#javascripts-sneaky-number-to-object-move)
+7. [Encouragement: Don’t Sweat It, You Got This!](#encouragement-dont-sweat-it-you-got-this)
+
 ## Introduction: My Struggles with Primitive vs. Reference Types
 
 Alright, I’ll admit it—when I first encountered primitive and reference types in JavaScript, my brain did a little somersault. “Wait, what do you mean, some things are stored on a stack and others on a heap? And why does it matter?” Yeah, it was one of those moments. 😅
