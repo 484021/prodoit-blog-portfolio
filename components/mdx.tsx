@@ -66,7 +66,7 @@ interface RoundedImageProps extends ImageProps {
 }
 
 function RoundedImage({ alt, ...props }: RoundedImageProps) {
-  return <Image alt={alt} className="rounded-lg" {...props} />;
+  return <Image alt={alt} className="rounded-lg items-center justify-center object-cover" {...props} />;
 }
 
 // Helper function to slugify text
