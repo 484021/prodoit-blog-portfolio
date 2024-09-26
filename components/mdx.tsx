@@ -66,7 +66,13 @@ interface RoundedImageProps extends ImageProps {
 }
 
 function RoundedImage({ alt, ...props }: RoundedImageProps) {
-  return <Image alt={alt} className="rounded-lg items-center justify-center object-cover" {...props} />;
+  return (
+    <Image
+      alt={alt}
+      className="rounded-lg items-center justify-center object-cover"
+      {...props}
+    />
+  );
 }
 
 // Helper function to slugify text
@@ -132,9 +138,9 @@ function Table({ data }: TableProps) {
       ))}
     </tr>
   ));
-
+  console.log("running");
   return (
-    <table>
+    <table >
       <thead>
         <tr>{headers}</tr>
       </thead>
