@@ -6,6 +6,7 @@ import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import { CustomMDX } from "@/components/mdx";
 import { baseUrl } from "@/app/sitemap";
 import Script from "next/script";
+
 // import { main } from "framer-motion/client";
 // import ReportViews from "@/components/ReportViews";
 // import { baseUrl } from "@/app/sitemap";

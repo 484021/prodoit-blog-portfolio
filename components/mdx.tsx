@@ -140,7 +140,7 @@ function Table({ data }: TableProps) {
   ));
   console.log("running");
   return (
-    <table >
+    <table>
       <thead>
         <tr>{headers}</tr>
       </thead>

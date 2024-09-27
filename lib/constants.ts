@@ -29,6 +29,11 @@ export const POSTS: { title: string; href: string; description: string }[] = [
     href: "/blog/system-design",
     description: "Random stuff about me.",
   },
+  {
+    title: "Notes",
+    href: "/blog/js-notes",
+    description: "Random stuff about me.",
+  },
   // {
   //   title: "Performance",
   //   href: "/blog/performance",
