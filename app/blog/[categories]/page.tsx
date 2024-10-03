@@ -3,6 +3,7 @@ import { getBlogPosts } from "../utils";
 import Link from "next/link";
 import Container from "@/components/Container";
 import CardCategory from "@/components/CardCategory";
+import { keywords } from "@/lib/constants";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -22,6 +23,7 @@ export function generateMetadata({
   return {
     title: category.charAt(0).toUpperCase() + category.slice(1),
     description: `All articles regarding ${category}`,
+    keywords: [...keywords, category],
   };
 }
 

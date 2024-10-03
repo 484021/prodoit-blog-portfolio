@@ -1,15 +1,11 @@
 import { notFound } from "next/navigation";
 import { formatDate, getBlogPosts } from "../../utils";
-// import Header from "@/components/Header";
 import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import { CustomMDX } from "@/components/mdx";
 import { baseUrl } from "@/app/sitemap";
 import Script from "next/script";
-
-// import { main } from "framer-motion/client";
-// import ReportViews from "@/components/ReportViews";
-// import { baseUrl } from "@/app/sitemap";
+import { keywords } from "@/lib/constants";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -57,6 +53,12 @@ export function generateMetadata({
       description,
       images: [ogImage],
     },
+    keywords: [
+      ...keywords,
+      post.metadata.title,
+      post.metadata.category,
+      post.metadata.description,
+    ],
   };
 }
 
