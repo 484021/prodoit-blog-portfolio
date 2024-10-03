@@ -108,7 +108,7 @@ export default function PortfolioPage() {
               <Link href="#projects">Projects</Link>
               <Link href="#experience">Experience</Link>
               <Link href="#testimonials">Testimonials</Link>
-              <Link href="#blog">Blog</Link>
+              <Link href="/blog">Blog</Link>
             </nav>
           </div>
           <div className="flex flex-1 items-center md:justify-end">
@@ -356,8 +356,8 @@ export default function PortfolioPage() {
                     <div>
                       <h3 className="text-xl font-semibold mb-2">Problem</h3>
                       <p className="text-sm text-muted-foreground">
-                        The client&rsquo;s existing e-commerce platform was slow and
-                        unresponsive, leading to high bounce rates and low
+                        The client&rsquo;s existing e-commerce platform was slow
+                        and unresponsive, leading to high bounce rates and low
                         conversion.
                       </p>
                     </div>
@@ -406,8 +406,8 @@ export default function PortfolioPage() {
                     <div>
                       <h3 className="text-xl font-semibold mb-2">Problem</h3>
                       <p className="text-sm text-muted-foreground">
-                        The client&rsquo;s team struggled with coordination and task
-                        tracking, leading to missed deadlines and reduced
+                        The client&rsquo;s team struggled with coordination and
+                        task tracking, leading to missed deadlines and reduced
                         productivity.
                       </p>
                     </div>
@@ -563,7 +563,9 @@ export default function PortfolioPage() {
                     <CardDescription>{testimonial.role}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="italic">&ldquo;{testimonial.content}&ldquo;</p>
+                    <p className="italic">
+                      &ldquo;{testimonial.content}&ldquo;
+                    </p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -583,23 +585,23 @@ export default function PortfolioPage() {
           <div className="space-y-6">
             {[
               {
-                role: "Senior Full-Stack Developer",
-                company: "TechInnovate Solutions",
-                period: "2020 - Present",
+                role: "Full-Stack Developer",
+                company: "sukuran Web Solutions",
+                period: "2022 - Present",
                 responsibilities: [
-                  "Lead development of scalable web applications using Next.js, React, and Node.js",
-                  "Implement and optimize RESTful APIs and GraphQL endpoints",
-                  "Mentor junior developers and conduct code reviews",
+                  "Boosted mobile traffic by 50% by developing a responsive, mobile-first design using React and Tailwind CSS, leading to a 15% increase in overall conversions",
+                  "Developed a client management platform used by 200+ clients by building a full-stack web application with Next.js and PostgreSQL, resulting in a 25% reduction in manual administrative tasks",
+                  "Collaborated with a team of 3 developers and conducted code reviews",
                 ],
               },
               {
-                role: "Full-Stack Developer",
-                company: "WebCraft Agency",
-                period: "2018 - 2020",
+                role: "Operations Manager",
+                company: "Unix Housing Inc",
+                period: "2021 - 2022",
                 responsibilities: [
-                  "Developed responsive web applications using React and Express.js",
-                  "Integrated third-party APIs and services to enhance application functionality",
-                  "Collaborated with design team to implement pixel-perfect UI/UX designs",
+                  "Boosted revenue by 18% by optimizing staff scheduling and implementing a new training program, leading to improved customer service and faster order processing",
+                  "Cut labor costs by 10% by restructuring employee shifts and introducing performance tracking software, increasing staff productivity by 20%",
+                  "Improved customer satisfaction scores by 35% by launching a customer feedback program",
                 ],
               },
             ].map((job, index) => (
