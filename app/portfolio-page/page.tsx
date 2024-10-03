@@ -17,15 +17,21 @@ import Link from "next/link";
 import { Icons } from "@/components/icons";
 import { ContactForm } from "@/components/component/contact-form";
 
-const AnimatedCounter = ({ value, duration = 2 }) => {
+const AnimatedCounter = ({
+  value,
+  duration = 2,
+}: {
+  value: number;
+  duration?: number;
+}) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     let start = 0;
-    const end = parseInt(value);
+    const end = value;
     if (start === end) return;
 
-    const totalMilSecDur = parseInt(duration);
+    const totalMilSecDur = duration;
     const incrementTime = (totalMilSecDur / end) * 1000;
 
     const timer = setInterval(() => {
@@ -40,7 +46,7 @@ const AnimatedCounter = ({ value, duration = 2 }) => {
   return <span>{count}</span>;
 };
 
-const SkillBadge = ({ skill }) => {
+const SkillBadge = ({ skill }: { skill: string }) => {
   return (
     <motion.div
       whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
@@ -188,7 +194,7 @@ export default function PortfolioPage() {
             Full-Stack Developer | Next.js | React | Node.js | PostgreSQL
           </p>
           <p className="text-muted-foreground mb-4">
-            I'm a passionate full-stack developer with experience building
+            I&rsquo;m a passionate full-stack developer with experience building
             scalable web applications. Specializing in Next.js, React, and
             Node.js, I create efficient, user-friendly solutions that drive
             business growth.
@@ -232,7 +238,7 @@ export default function PortfolioPage() {
             initial="hidden"
             animate="show"
           >
-            {skills.map((skill, index) => (
+            {skills.map((skill) => (
               <motion.div
                 key={skill}
                 variants={{
@@ -350,7 +356,7 @@ export default function PortfolioPage() {
                     <div>
                       <h3 className="text-xl font-semibold mb-2">Problem</h3>
                       <p className="text-sm text-muted-foreground">
-                        The client's existing e-commerce platform was slow and
+                        The client&rsquo;s existing e-commerce platform was slow and
                         unresponsive, leading to high bounce rates and low
                         conversion.
                       </p>
@@ -370,15 +376,15 @@ export default function PortfolioPage() {
                       <h3 className="text-xl font-semibold mb-2">Impact</h3>
                       <ul className="list-disc list-inside text-sm text-muted-foreground">
                         <li>
-                          <AnimatedCounter value="50" />% reduction in page load
+                          <AnimatedCounter value={50} />% reduction in page load
                           time
                         </li>
                         <li>
-                          <AnimatedCounter value="30" />% increase in conversion
+                          <AnimatedCounter value={30} />% increase in conversion
                           rate
                         </li>
                         <li>
-                          <AnimatedCounter value="25" />% decrease in bounce
+                          <AnimatedCounter value={25} />% decrease in bounce
                           rate
                         </li>
                       </ul>
@@ -400,7 +406,7 @@ export default function PortfolioPage() {
                     <div>
                       <h3 className="text-xl font-semibold mb-2">Problem</h3>
                       <p className="text-sm text-muted-foreground">
-                        The client's team struggled with coordination and task
+                        The client&rsquo;s team struggled with coordination and task
                         tracking, leading to missed deadlines and reduced
                         productivity.
                       </p>
@@ -420,15 +426,15 @@ export default function PortfolioPage() {
                       <h3 className="text-xl font-semibold mb-2">Impact</h3>
                       <ul className="list-disc list-inside text-sm text-muted-foreground">
                         <li>
-                          <AnimatedCounter value="40" />% improvement in team
+                          <AnimatedCounter value={40} />% improvement in team
                           productivity
                         </li>
                         <li>
-                          <AnimatedCounter value="60" />% reduction in missed
+                          <AnimatedCounter value={60} />% reduction in missed
                           deadlines
                         </li>
                         <li>
-                          <AnimatedCounter value="90" />% user adoption rate
+                          <AnimatedCounter value={90} />% user adoption rate
                           within the first month
                         </li>
                       </ul>
@@ -557,7 +563,7 @@ export default function PortfolioPage() {
                     <CardDescription>{testimonial.role}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="italic">"{testimonial.content}"</p>
+                    <p className="italic">&ldquo;{testimonial.content}&ldquo;</p>
                   </CardContent>
                 </Card>
               </motion.div>
