@@ -553,7 +553,7 @@ export default function HomePage({
                 period: "2022 - Present",
                 responsibilities: [
                   "Boosted mobile traffic by 50% by developing a responsive, mobile-first design using React and Tailwind CSS, leading to a 15% increase in overall conversions",
-                  "Developed a client management platform used by 200+ clients by building a full-stack web application with Next.js and PostgreSQL, resulting in a 25% reduction in manual administrative tasks",
+                  "Developed a client management platform for clients by building a full-stack web application with Next.js and PostgreSQL, resulting in a 25% reduction in manual administrative tasks",
                   "Collaborated with a team of 3 developers and conducted code reviews",
                 ],
               },

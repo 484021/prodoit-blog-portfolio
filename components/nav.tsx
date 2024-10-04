@@ -15,21 +15,21 @@ export default function NavBar() {
   return (
     <>
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 items-center ">
-          <div className="mr-4 hidden md:flex ml-auto">
+        <div className="container flex h-14 items-center">
+          <div className="mr-4 hidden md:flex ml-auto ">
             <Icons.logo className="ml-2 h-7 w-7" />
 
             <Link className="ml-2 mr-6 flex items-center space-x-2" href="/">
               Santhosh Bhoopal
             </Link>
-            <nav className="flex items-center space-x-6 text-sm font-medium">
+            <nav className="flex items-center space-x-6 text-sm font-medium ">
               {pathname === "/" ? (
                 <>
                   <Link href="#about">About</Link>
                   <Link href="#skills">Skills</Link>
                   <Link href="#projects">Projects</Link>
-                  <Link href="experience">Experience</Link>
-                  <Link href="testimonials">Testimonials</Link>
+                  <Link href="#experience">Experience</Link>
+                  <Link href="#testimonials">Testimonials</Link>
                   <Link href="/blog">Blog</Link>
                 </>
               ) : (
@@ -40,9 +40,9 @@ export default function NavBar() {
               )}
             </nav>
           </div>
-          <div className="flex flex-1 items-center md:justify-end">
+          <div className="flex flex-1 items-center w-full justify-end">
             <Link href={`${pathname === "/" ? "#contact" : "/contact"}`}>
-              <Button variant="outline" className=" hidden md:flex">
+              <Button variant="outline" className=" hidden md:flex ">
                 <Mail className="mr-2 h-4 w-4" />
                 Contact Me
               </Button>
