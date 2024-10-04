@@ -5,34 +5,43 @@ import React, { useState } from "react";
 import { Icons } from "./icons";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function NavBar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  console.log(pathname);
 
   return (
     <>
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-14 items-center ">
           <div className="mr-4 hidden md:flex ml-auto">
-            <Icons.logo className="h-7 w-7" />
+            <Icons.logo className="ml-2 h-7 w-7" />
 
-            <Link
-              className="ml-2 mr-6 flex items-center space-x-2"
-              href="/portfolio-page"
-            >
+            <Link className="ml-2 mr-6 flex items-center space-x-2" href="/">
               Santhosh Bhoopal
             </Link>
             <nav className="flex items-center space-x-6 text-sm font-medium">
-              <Link href="/portfolio-page/">About</Link>
-              <Link href="/portfolio-page/">Skills</Link>
-              <Link href="/portfolio-page/">Projects</Link>
-              <Link href="/portfolio-page/">Experience</Link>
-              <Link href="/portfolio-page/">Testimonials</Link>
-              <Link href="/blog">Blog</Link>
+              {pathname === "/" ? (
+                <>
+                  <Link href="#about">About</Link>
+                  <Link href="#skills">Skills</Link>
+                  <Link href="#projects">Projects</Link>
+                  <Link href="experience">Experience</Link>
+                  <Link href="testimonials">Testimonials</Link>
+                  <Link href="/blog">Blog</Link>
+                </>
+              ) : (
+                <>
+                  <Link href="/">Home</Link>
+                  <Link href="/blog">Blog</Link>
+                </>
+              )}
             </nav>
           </div>
           <div className="flex flex-1 items-center md:justify-end">
-            <Link href="#contact">
+            <Link href={`${pathname === "/" ? "#contact" : "/contact"}`}>
               <Button variant="outline" className=" hidden md:flex">
                 <Mail className="mr-2 h-4 w-4" />
                 Contact Me
@@ -79,24 +88,37 @@ export default function NavBar() {
             </svg>
           </Button>
           <nav className="flex flex-col space-y-4">
-            <Link href="#about" onClick={() => setIsMenuOpen(false)}>
-              About
-            </Link>
-            <Link href="#skills" onClick={() => setIsMenuOpen(false)}>
-              Skills
-            </Link>
-            <Link href="#projects" onClick={() => setIsMenuOpen(false)}>
-              Projects
-            </Link>
-            <Link href="#experience" onClick={() => setIsMenuOpen(false)}>
-              Experience
-            </Link>
-            <Link href="#testimonials" onClick={() => setIsMenuOpen(false)}>
-              Testimonials
-            </Link>
-            <Link href="#blog" onClick={() => setIsMenuOpen(false)}>
-              Blog
-            </Link>
+            {pathname === "/" ? (
+              <>
+                <Link href="#about" onClick={() => setIsMenuOpen(false)}>
+                  About
+                </Link>
+                <Link href="#skills" onClick={() => setIsMenuOpen(false)}>
+                  Skills
+                </Link>
+                <Link href="#projects" onClick={() => setIsMenuOpen(false)}>
+                  Projects
+                </Link>
+                <Link href="#experience" onClick={() => setIsMenuOpen(false)}>
+                  Experience
+                </Link>
+                <Link href="#testimonials" onClick={() => setIsMenuOpen(false)}>
+                  Testimonials
+                </Link>
+                <Link href="/blog" onClick={() => setIsMenuOpen(false)}>
+                  Blog
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                  Home
+                </Link>
+                <Link href="/blog" onClick={() => setIsMenuOpen(false)}>
+                  Blog
+                </Link>
+              </>
+            )}
           </nav>
         </motion.div>
       )}

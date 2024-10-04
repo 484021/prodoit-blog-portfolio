@@ -12,10 +12,13 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Github, Globe, Linkedin, Mail, Menu } from "lucide-react";
+import { ArrowRight, Github, Globe, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
-import { Icons } from "@/components/icons";
 import { ContactForm } from "@/components/component/contact-form";
+import petly from "@/lib/assets/petly.png";
+import nestio from "@/lib/assets/nestio.png";
+import wordanalytics from "@/lib/assets/wordanalytics.png";
+import Image from "next/image";
 
 const AnimatedCounter = ({
   value,
@@ -62,15 +65,34 @@ const SkillBadge = ({ skill }: { skill: string }) => {
   );
 };
 
-export default function PortfolioPage() {
+type BlogPost = {
+  metadata: {
+    [key: string]: string;
+  };
+  slug: string;
+  content: string;
+};
+
+export default function HomePage({
+  latestBlogPosts,
+}: {
+  latestBlogPosts: BlogPost[];
+}) {
+  const latestPosts = latestBlogPosts
+    .sort((a, b) => {
+      if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
+        return -1;
+      }
+      return 1;
+    })
+    .slice(0, 4);
+
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
     restDelta: 0.001,
   });
-
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const skills = [
     "JavaScript",
@@ -94,94 +116,7 @@ export default function PortfolioPage() {
         style={{ scaleX }}
       />
 
-      <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="container flex h-14 items-center ">
-          <div className="mr-4 hidden md:flex ml-auto">
-            <Icons.logo className="h-7 w-7" />
-
-            <Link className="ml-2 mr-6 flex items-center space-x-2" href="/">
-              Santhosh Bhoopal
-            </Link>
-            <nav className="flex items-center space-x-6 text-sm font-medium">
-              <Link href="#about">About</Link>
-              <Link href="#skills">Skills</Link>
-              <Link href="#projects">Projects</Link>
-              <Link href="#experience">Experience</Link>
-              <Link href="#testimonials">Testimonials</Link>
-              <Link href="/blog">Blog</Link>
-            </nav>
-          </div>
-          <div className="flex flex-1 items-center md:justify-end">
-            <Link href="#contact">
-              <Button variant="outline" className=" hidden md:flex">
-                <Mail className="mr-2 h-4 w-4" />
-                Contact Me
-              </Button>
-            </Link>
-            <Button
-              variant="ghost"
-              className="md:hidden"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <Menu className="h-6 w-6" />
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      {isMenuOpen && (
-        <motion.div
-          className="fixed inset-0 z-50 bg-background p-6 md:hidden"
-          initial={{ x: "100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "100%" }}
-          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-        >
-          <Button
-            variant="ghost"
-            className="absolute top-4 right-4"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="lucide lucide-x"
-            >
-              <path d="M18 6 6 18" />
-              <path d="m6 6 12 12" />
-            </svg>
-          </Button>
-          <nav className="flex flex-col space-y-4">
-            <Link href="#about" onClick={() => setIsMenuOpen(false)}>
-              About
-            </Link>
-            <Link href="#skills" onClick={() => setIsMenuOpen(false)}>
-              Skills
-            </Link>
-            <Link href="#projects" onClick={() => setIsMenuOpen(false)}>
-              Projects
-            </Link>
-            <Link href="#experience" onClick={() => setIsMenuOpen(false)}>
-              Experience
-            </Link>
-            <Link href="#testimonials" onClick={() => setIsMenuOpen(false)}>
-              Testimonials
-            </Link>
-            <Link href="#blog" onClick={() => setIsMenuOpen(false)}>
-              Blog
-            </Link>
-          </nav>
-        </motion.div>
-      )}
-
-      <main className="container mx-auto px-4 py-8">
+      <main className="container px-4 py-8 mx-auto w-full space-y-6 relative">
         <motion.section
           id="about"
           className="mb-16"
@@ -200,18 +135,24 @@ export default function PortfolioPage() {
             business growth.
           </p>
           <div className="flex space-x-4">
-            <Button>
-              <Mail className="mr-2 h-4 w-4" />
-              Hire Me
-            </Button>
-            <Button variant="outline">
-              <Github className="mr-2 h-4 w-4" />
-              GitHub
-            </Button>
-            <Button variant="outline">
-              <Linkedin className="mr-2 h-4 w-4" />
-              LinkedIn
-            </Button>
+            <Link href="#contact">
+              <Button>
+                <Mail className="mr-2 h-4 w-4" />
+                Hire Me
+              </Button>
+            </Link>
+            <Link href="https://github.com/484021" target="_blank">
+              <Button variant="outline">
+                <Github className="mr-2 h-4 w-4" />
+                GitHub
+              </Button>
+            </Link>
+            <Link href="https://www.linkedin.com/in/sanbho/" target="_blank">
+              <Button variant="outline">
+                <Linkedin className="mr-2 h-4 w-4" />
+                LinkedIn
+              </Button>
+            </Link>
           </div>
         </motion.section>
 
@@ -264,28 +205,38 @@ export default function PortfolioPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "E-commerce Platform",
+                title: "Petly",
                 description:
-                  "A full-featured e-commerce solution with real-time inventory management.",
-                tech: ["Next.js", "React", "Node.js", "PostgreSQL"],
-                demo: "https://demo-ecommerce.com",
-                github: "https://github.com/johndoe/ecommerce",
+                  "A SaaS to manage all your pet day care clients and dogs in one place. Full-Stack CRUD operations with Auth and Payment.",
+                tech: [
+                  "Next.js",
+                  "React",
+                  "TypeScript",
+                  "PostgreSQL",
+                  "Prisma",
+                  "Stripe",
+                ],
+                demo: "https://petly-sooty.vercel.app/",
+                github: "https://github.com/484021/petly",
+                image: petly,
               },
               {
-                title: "Task Management App",
+                title: "Nestio",
                 description:
-                  "A collaborative task management tool with real-time updates.",
-                tech: ["React", "Firebase", "Material-UI"],
-                demo: "https://task-app-demo.com",
-                github: "https://github.com/johndoe/task-app",
+                  "A property management website that connects owners and renters. Rich full of features from OAuth, messaging, bookmarking, search, filter and more.",
+                tech: ["Next.js", "React", "JavaScript", "MongoDB", "Mongoose"],
+                demo: "https://nestio.vercel.app/",
+                github: "https://github.com/484021/nestio",
+                image: nestio,
               },
               {
-                title: "Weather Forecast Dashboard",
+                title: "Word Analytics",
                 description:
-                  "An interactive weather dashboard with location-based forecasts.",
-                tech: ["Vue.js", "Express", "OpenWeatherMap API"],
-                demo: "https://weather-dashboard-demo.com",
+                  "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
+                tech: ["React"],
+                demo: "https://github.com/484021/Word-Analytics-React-Vite",
                 github: "https://github.com/johndoe/weather-dashboard",
+                image: wordanalytics,
               },
             ].map((project, index) => (
               <motion.div
@@ -295,10 +246,19 @@ export default function PortfolioPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
               >
-                <Card>
+                <Card className="hover:scale-105 transition">
                   <CardHeader>
-                    <CardTitle>{project.title}</CardTitle>
-                    <CardDescription>{project.description}</CardDescription>
+                    <CardTitle className="mb-2">{project.title}</CardTitle>
+                    <Link href={project.demo} target="_blank">
+                      <Image
+                        src={project.image}
+                        alt="project image"
+                        className="border rounded-md"
+                      />
+                    </Link>
+                    <CardDescription className="mt-2">
+                      {project.description}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="flex flex-wrap gap-2 mb-4">
@@ -310,13 +270,13 @@ export default function PortfolioPage() {
                     </div>
                     <div className="flex space-x-2">
                       <Button variant="outline" size="sm" asChild>
-                        <Link href={project.demo}>
+                        <Link href={project.demo} target="_blank">
                           <Globe className="mr-2 h-4 w-4" />
                           Demo
                         </Link>
                       </Button>
                       <Button variant="outline" size="sm" asChild>
-                        <Link href={project.github}>
+                        <Link href={project.github} target="_blank">
                           <Github className="mr-2 h-4 w-4" />
                           GitHub
                         </Link>
@@ -396,9 +356,9 @@ export default function PortfolioPage() {
             <TabsContent value="task-app">
               <Card>
                 <CardHeader>
-                  <CardTitle>Task Management App Redesign</CardTitle>
+                  <CardTitle>Pet Daycare Management App</CardTitle>
                   <CardDescription>
-                    Enhancing collaboration and productivity
+                    Increasing organization and efficency
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -406,19 +366,22 @@ export default function PortfolioPage() {
                     <div>
                       <h3 className="text-xl font-semibold mb-2">Problem</h3>
                       <p className="text-sm text-muted-foreground">
-                        The client&rsquo;s team struggled with coordination and
-                        task tracking, leading to missed deadlines and reduced
-                        productivity.
+                        The pet daycare struggled with coordinating schedules
+                        and tracking tasks, which led to missed appointments,
+                        inefficient workflow, and reduced overall productivity.
                       </p>
                     </div>
 
                     <div>
                       <h3 className="text-xl font-semibold mb-2">Solution</h3>
                       <p className="text-sm text-muted-foreground">
-                        Developed a React-based task management app with
-                        real-time updates using Firebase. Implemented
-                        drag-and-drop functionality, customizable workflows, and
-                        integrated chat features.
+                        Developed a complete pet daycare management app with
+                        secure authentication, pet sign-in and sign-out
+                        tracking, payment processing, and detailed pet profiles.
+                        The app allows staff to manage bookings, monitor pet
+                        activity, and store important pet information, ensuring
+                        a smooth and efficient daycare experience for both staff
+                        and pet owners.
                       </p>
                     </div>
 
@@ -426,16 +389,16 @@ export default function PortfolioPage() {
                       <h3 className="text-xl font-semibold mb-2">Impact</h3>
                       <ul className="list-disc list-inside text-sm text-muted-foreground">
                         <li>
-                          <AnimatedCounter value={40} />% improvement in team
-                          productivity
+                          <AnimatedCounter value={50} />% improvement in
+                          operational efficiency
                         </li>
                         <li>
-                          <AnimatedCounter value={60} />% reduction in missed
-                          deadlines
+                          <AnimatedCounter value={70} />% reduction in missed
+                          appointments and scheduling errors
                         </li>
                         <li>
-                          <AnimatedCounter value={90} />% user adoption rate
-                          within the first month
+                          <AnimatedCounter value={95} />% satisfaction rate
+                          among staff and pet owners within the first month
                         </li>
                       </ul>
                     </div>
@@ -642,22 +605,9 @@ export default function PortfolioPage() {
         >
           <h2 className="text-3xl font-bold mb-4">Latest Blog Posts</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                title: "Optimizing React Performance: Tips and Tricks",
-                excerpt:
-                  "Learn how to improve your React application's performance with these advanced techniques.",
-                date: "2023-05-15",
-              },
-              {
-                title: "Building Scalable APIs with GraphQL and Node.js",
-                excerpt:
-                  "Discover the benefits of GraphQL and how to implement it in your Node.js backend.",
-                date: "2023-04-22",
-              },
-            ].map((post, index) => (
+            {latestPosts.map((post, index) => (
               <motion.div
-                key={post.title}
+                key={post.metadata.title}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -665,15 +615,22 @@ export default function PortfolioPage() {
               >
                 <Card>
                   <CardHeader>
-                    <CardTitle>{post.title}</CardTitle>
-                    <CardDescription>{post.date}</CardDescription>
+                    <CardTitle>{post.metadata.title}</CardTitle>
+                    <CardDescription>
+                      {post.metadata.publishedAt}
+                    </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p>{post.excerpt}</p>
-                    <Button variant="link" className="p-0 h-auto mt-2">
-                      Read more
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
+                    <p>{post.metadata.summary}</p>
+                    <Link
+                      href={`/blog/${post.metadata.category}/${post.slug}`}
+                      key={Math.random()}
+                    >
+                      <Button variant="link" className="p-0 h-auto mt-2">
+                        Read more
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </Button>
+                    </Link>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -690,61 +647,6 @@ export default function PortfolioPage() {
           viewport={{ once: true }}
         >
           <ContactForm />
-          {/* <Card>
-            <CardHeader>
-              <CardTitle>Let's Work Together</CardTitle>
-              <CardDescription>
-                I'm always open to new opportunities and collaborations.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form className="space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="name"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Name
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      htmlFor="email"
-                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                    >
-                      Email
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label
-                    htmlFor="message"
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    className="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-                  />
-                </div>
-                <Button type="submit" className="w-full">
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
-          </Card> */}
         </motion.section>
       </main>
     </div>

@@ -4,14 +4,14 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Inter } from "next/font/google";
 import Footer from "@/components/footer";
 // import Logo from "@/components/logo";
-import AnimatedNavBar from "@/components/animated-nav-bar";
+// import AnimatedNavBar from "@/components/animated-nav-bar";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
 import { keywords } from "@/lib/constants";
-// import NavBar from "@/components/nav";
+import NavBar from "@/components/nav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -59,8 +59,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {/* <Logo /> */}
-          <AnimatedNavBar />
-          {/* <NavBar /> */}
+          {/* <AnimatedNavBar /> */}
+          <NavBar />
           {children}
           <ModeToggle />
           <Footer />

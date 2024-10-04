@@ -1,14 +1,21 @@
-import Container from "@/components/Container";
-import HeroContent from "@/components/hero-content";
-import HeroText from "@/components/hero-text";
+import HomePage from "@/components/home-page";
+import React from "react";
+import { getBlogPosts } from "./blog/utils";
 
-export default function Home() {
+type BlogPost = {
+  metadata: {
+      [key: string]: string;
+  };
+  slug: string;
+  content: string;
+};
+
+export default function Page() {
+  const latestBlogPosts: BlogPost[] = getBlogPosts()
+
   return (
-    <Container>
-      <main className="max-w-[60ch] lg:min-w-[60ch] mx-auto w-full space-y-6">
-        <HeroText />
-        <HeroContent />
-      </main>
-    </Container>
+    <>
+      <HomePage latestBlogPosts={latestBlogPosts} />
+    </>
   );
 }
