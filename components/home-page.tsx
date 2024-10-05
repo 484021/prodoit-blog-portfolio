@@ -126,10 +126,10 @@ export default function HomePage({
         >
           <h1 className="text-4xl font-bold mb-4">Santhosh Bhoopal</h1>
           <p className="text-xl mb-4">
-            Full-Stack Developer | Next.js | React | Node.js | PostgreSQL
+            Full Stack Developer | Next.js | React | Node.js | PostgreSQL
           </p>
           <p className="text-muted-foreground mb-4">
-            I&rsquo;m a passionate full-stack developer with experience building
+            I&rsquo;m a passionate full stack developer with experience building
             scalable web applications. Specializing in Next.js, React, and
             Node.js, I create efficient, user-friendly solutions that drive
             business growth.
@@ -207,7 +207,7 @@ export default function HomePage({
               {
                 title: "Petly",
                 description:
-                  "A SaaS to manage all your pet day care clients and dogs in one place. Full-Stack CRUD operations with Auth and Payment.",
+                  "A SaaS to manage all your pet day care clients and dogs in one place. Full Stack CRUD operations with Auth and Payment.",
                 tech: [
                   "Next.js",
                   "React",
@@ -468,12 +468,12 @@ export default function HomePage({
           <div className="space-y-6">
             {[
               {
-                role: "Full-Stack Developer",
+                role: "Full Stack Developer",
                 company: "sukuran Web Solutions",
                 period: "2022 - Present",
                 responsibilities: [
                   "Boosted mobile traffic by 50% by developing a responsive, mobile-first design using React and Tailwind CSS, leading to a 15% increase in overall conversions",
-                  "Developed a client management platform for clients by building a full-stack web application with Next.js and PostgreSQL, resulting in a 25% reduction in manual administrative tasks",
+                  "Developed a client management platform for clients by building a full stack web application with Next.js and PostgreSQL, resulting in a 25% reduction in manual administrative tasks",
                   "Collaborated with a team of 3 developers and conducted code reviews",
                 ],
               },
