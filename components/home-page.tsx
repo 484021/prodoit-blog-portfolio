@@ -301,7 +301,7 @@ export default function HomePage({
           <Tabs defaultValue="ecommerce" className="space-y-4">
             <TabsList>
               <TabsTrigger value="ecommerce">E-commerce Platform</TabsTrigger>
-              <TabsTrigger value="task-app">Pet Daycare Management App</TabsTrigger>
+              <TabsTrigger value="task-app">Management App</TabsTrigger>
             </TabsList>
             <TabsContent value="ecommerce">
               <Card>
