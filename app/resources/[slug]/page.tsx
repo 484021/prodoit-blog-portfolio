@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import santhosh from "@/lib/assets/santhosh.jpg";
-import { ContactForm } from "@/components/component/contact-form";
 
 export default function Page() {
   return (
@@ -14,9 +13,9 @@ export default function Page() {
           <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             I understand that you may have come here searching for something
             specific, and while you might not have found it right away, I assure
-            you, you&apos;re exactly where you need to be! This space is dedicated to
-            exploring possibilities and uncovering solutions that can elevate
-            your digital presence.
+            you, you&apos;re exactly where you need to be! This space is
+            dedicated to exploring possibilities and uncovering solutions that
+            can elevate your digital presence.
           </p>
           <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             Let’s connect! Reach out to me directly, and together, we’ll dive
@@ -41,7 +40,6 @@ export default function Page() {
           className="mx-auto aspect-square overflow-hidden rounded-xl object-cover object-center sm:w-full"
         />
       </div>
-      <ContactForm />
     </section>
   );
 }
