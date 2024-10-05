@@ -14,8 +14,8 @@ export default function Page() {
   const latestBlogPosts: BlogPost[] = getBlogPosts()
 
   return (
-    <>
+    <div className="w-full">
       <HomePage latestBlogPosts={latestBlogPosts} />
-    </>
+    </div>
   );
 }

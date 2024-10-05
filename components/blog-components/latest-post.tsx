@@ -15,7 +15,7 @@ export default function LatestPosts() {
           }
           return 1;
         })
-        .slice(0, 6)
+        .slice(0, 10)
         .map((post) => (
           <article key={Math.random()} className="text-wrap mt-3">
             <Link href={`/blog/${post.metadata.category}/${post.slug}`}>

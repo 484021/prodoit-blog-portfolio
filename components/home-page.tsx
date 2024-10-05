@@ -112,7 +112,7 @@ export default function HomePage({
   return (
     <div className="min-h-screen bg-background text-foreground">
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-primary z-50"
+        className="fixed top-0 left-0 right-0 h-1 bg-primary z-50 flex"
         style={{ scaleX }}
       />
 
@@ -301,7 +301,7 @@ export default function HomePage({
           <Tabs defaultValue="ecommerce" className="space-y-4">
             <TabsList>
               <TabsTrigger value="ecommerce">E-commerce Platform</TabsTrigger>
-              <TabsTrigger value="task-app">Task Management App</TabsTrigger>
+              <TabsTrigger value="task-app">Pet Daycare Management App</TabsTrigger>
             </TabsList>
             <TabsContent value="ecommerce">
               <Card>
@@ -408,86 +408,6 @@ export default function HomePage({
             </TabsContent>
           </Tabs>
         </motion.section>
-
-        {/* <motion.section
-          id="tools-techniques"
-          className="mb-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl font-bold mb-4">
-            Tools and Techniques in Action
-          </h2>
-          <div className="space-y-6">
-            {[
-              {
-                problem:
-                  "Slow database queries in a large-scale e-commerce platform",
-                tools: ["PostgreSQL", "Prisma", "Redis"],
-                solution:
-                  "Implemented database indexing, query optimization, and caching strategies",
-                results:
-                  "Reduced average query time by 75%, improving overall site performance",
-              },
-              {
-                problem:
-                  "Performance issues in a React-based single-page application",
-                tools: ["React", "Next.js", "Webpack"],
-                solution:
-                  "Migrated to Next.js for server-side rendering and implemented code splitting",
-                results:
-                  "Improved initial page load time by 60% and enhanced SEO capabilities",
-              },
-              {
-                problem:
-                  "Scalability challenges in a real-time chat application",
-                tools: ["Node.js", "Socket.io", "MongoDB", "Docker"],
-                solution:
-                  "Designed a microservices architecture and implemented horizontal scaling",
-                results:
-                  "Increased concurrent user capacity by 500% without compromising performance",
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      Problem: {item.problem}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="mb-2">
-                      <strong>Tools/Technologies Used:</strong>
-                      <div className="flex flex-wrap gap-2 mt-1">
-                        {item.tools.map((tool) => (
-                          <Badge key={tool} variant="secondary">
-                            {tool}
-                          </Badge>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="mb-2">
-                      <strong>Solution:</strong>
-                      <p>{item.solution}</p>
-                    </div>
-                    <div>
-                      <strong>Results:</strong>
-                      <p>{item.results}</p>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section> */}
 
         <motion.section
           id="testimonials"
