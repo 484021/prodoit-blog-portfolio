@@ -186,6 +186,7 @@ export const keywords = [
   "MySQL",
   "Docker",
   "Cloud platforms (AWS, Azure, Google Cloud)",
+  "local seo tips mississauga",
 
   // NLP Keywords
   "Build modern web applications",
