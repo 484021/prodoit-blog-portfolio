@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Github, Globe, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Github, Globe, Linkedin, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import { ContactForm } from "@/components/component/contact-form";
 import petly from "@/lib/assets/petly.png";
@@ -125,14 +125,12 @@ export default function HomePage({
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-4xl font-bold mb-4">Santhosh Bhoopal</h1>
-          <p className="text-xl mb-4">
-            Full Stack Developer | Next.js | React | Node.js | PostgreSQL
-          </p>
+          <p className="text-xl mb-4">Full Stack Developer</p>
+          <p className="text-xl mb-4 flex"><MapPin className="mr-2"/>Canada</p>
           <p className="text-muted-foreground mb-4">
             I&apos;m a Full Stack Developer with experience building web
-            applications. I work with Next.js, React, and Node.js to create
-            practical, user-friendly solutions that help businesses operate more
-            efficiently.
+            applications. I create practical, user-friendly solutions that help
+            businesses operate more efficiently.
           </p>
           <div className="flex space-x-4">
             <Link href="#contact">
