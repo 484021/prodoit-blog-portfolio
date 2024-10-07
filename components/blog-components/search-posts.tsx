@@ -27,7 +27,7 @@ export default function SearchPosts({
     );
 
   return (
-    <div className=" mt-7">
+    <div className="mt-7">
       <Input
         className="my-4"
         placeholder="Search for what you're looking for.."
@@ -36,11 +36,12 @@ export default function SearchPosts({
         }}
         value={filterQuery}
       />
-      {filterQuery ? <h4 className="">Search Results</h4> : <></>}
+      {filterQuery ? <h4 className="">Search Results</h4> : null}
+
       {filterQuery.length > 0 ? (
-        posts.map((post) => {
-          return (
-            <article key={Math.random()} className="text-wrap mt-3">
+        posts.length > 0 ? (
+          posts.map((post) => (
+            <article key={post.slug} className="text-wrap mt-3">
               <Link href={`/blog/${post.metadata.category}/${post.slug}`}>
                 <h3 className="font-medium leading-5 underline decoration-violet-400 hover:text-violet-500">
                   {post.metadata.title}
@@ -51,11 +52,11 @@ export default function SearchPosts({
                 {post.metadata.publishedAt}
               </p>
             </article>
-          );
-        })
-      ) : (
-        <></>
-      )}
+          ))
+        ) : (
+          <p className="text-violet-500 text-2xl mt-2">No results found</p>
+        )
+      ) : null}
     </div>
   );
 }
