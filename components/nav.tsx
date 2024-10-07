@@ -117,6 +117,9 @@ export default function NavBar() {
                 <Link href="/blog" onClick={() => setIsMenuOpen(false)}>
                   Blog
                 </Link>
+                <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                  Contact
+                </Link>
               </>
             )}
           </nav>

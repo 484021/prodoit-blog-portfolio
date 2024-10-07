@@ -4,6 +4,7 @@ import Link from "next/link";
 import Container from "@/components/Container";
 import CardCategory from "@/components/CardCategory";
 import { keywords } from "@/lib/constants";
+import SearchPosts from "@/components/blog-components/search-posts";
 
 export async function generateStaticParams() {
   const posts = getBlogPosts();
@@ -47,6 +48,11 @@ export default function Page({ params }: { params: { categories: string } }) {
         <h1 className="title font-semibold tracking-wider capitalize">
           {title}
         </h1>
+        {/* //return to blog page */}
+        <Link href="/blog" className=" text-sm">
+          &larr; Back to blog
+        </Link>
+        <SearchPosts latestPosts={posts}/>
 
         <div className=" flex flex-wrap gap-2 mt-16">
           {posts

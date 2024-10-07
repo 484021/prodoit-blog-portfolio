@@ -1,4 +1,4 @@
-import { Briefcase, BriefcaseMedical, MapPin } from "lucide-react";
+import { Briefcase, MapPin } from "lucide-react";
 import React from "react";
 
 export default function HeroText() {
