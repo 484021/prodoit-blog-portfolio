@@ -126,7 +126,7 @@ export default function HomePage({
         >
           <h1 className="text-4xl font-bold mb-4">Santhosh Bhoopal</h1>
           <p className="text-xl mb-4">Full Stack Developer</p>
-          <p className="text-xl mb-4 flex"><MapPin className="mr-2"/>Canada</p>
+          <p className="text-xl mb-4 flex"><MapPin className="mr-2"/>Greater Toronto Area, Canada</p>
           <p className="text-muted-foreground mb-4">
             I&apos;m a Full Stack Developer with experience building web
             applications. I create practical, user-friendly solutions that help
