@@ -129,10 +129,10 @@ export default function HomePage({
             Full Stack Developer | Next.js | React | Node.js | PostgreSQL
           </p>
           <p className="text-muted-foreground mb-4">
-            I&rsquo;m a passionate full stack developer with experience building
-            scalable web applications. Specializing in Next.js, React, and
-            Node.js, I create efficient, user-friendly solutions that drive
-            business growth.
+            I&apos;m a Full Stack Developer with experience building web
+            applications. I work with Next.js, React, and Node.js to create
+            practical, user-friendly solutions that help businesses operate more
+            efficiently.
           </p>
           <div className="flex space-x-4">
             <Link href="#contact">
