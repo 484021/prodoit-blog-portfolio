@@ -12,7 +12,14 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ArrowRight, Github, Globe, Linkedin, Mail, MapPin } from "lucide-react";
+import {
+  ArrowRight,
+  Github,
+  Globe,
+  Linkedin,
+  Mail,
+  MapPin,
+} from "lucide-react";
 import Link from "next/link";
 import { ContactForm } from "@/components/component/contact-form";
 import petly from "@/lib/assets/petly.png";
@@ -119,14 +126,17 @@ export default function HomePage({
       <main className="container px-4 py-8 mx-auto w-full space-y-6 relative">
         <motion.section
           id="about"
-          className="mb-16"
+          className="mb-16 pt-[55px] -mt-[55px] block"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
           <h1 className="text-4xl font-bold mb-4">Santhosh Bhoopal</h1>
           <p className="text-xl mb-4">Full Stack Developer</p>
-          <p className="text-xl mb-4 flex"><MapPin className="mr-2"/>Greater Toronto Area, Canada</p>
+          <p className="text-xl mb-4 flex">
+            <MapPin className="mr-2" />
+            Greater Toronto Area, Canada
+          </p>
           <p className="text-muted-foreground mb-4">
             I&apos;m a Full Stack Developer with experience building web
             applications. I create practical, user-friendly solutions that help
@@ -156,7 +166,7 @@ export default function HomePage({
 
         <motion.section
           id="skills"
-          className="mb-16"
+          className="mb-16 pt-[55px] -mt-[55px] block"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -193,7 +203,7 @@ export default function HomePage({
 
         <motion.section
           id="projects"
-          className="mb-16"
+          className="mb-16 pt-[55px] -mt-[55px] block"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -289,7 +299,7 @@ export default function HomePage({
 
         <motion.section
           id="case-studies"
-          className="mb-16"
+          className="mb-16 pt-[55px] -mt-[55px] block"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -408,55 +418,8 @@ export default function HomePage({
         </motion.section>
 
         <motion.section
-          id="testimonials"
-          className="mb-16"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl font-bold mb-4">Client Testimonials</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                name: "Tracy Fung",
-                role: "Artist",
-                content:
-                  "Very quick and thorough. Asks many questions to ensure the site meets your needs. The results turned out the way I expected and better. Even created a logo.",
-              },
-              {
-                name: "Oluremi Precious",
-                role: "Owner, Love The Beads",
-                content:
-                  "We’re impressed with the seamless functionality and clean design of the website. Excellent job, and your attention to detail is truly commendable!",
-              },
-            ].map((testimonial, index) => (
-              <motion.div
-                key={testimonial.name}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card>
-                  <CardHeader>
-                    <CardTitle>{testimonial.name}</CardTitle>
-                    <CardDescription>{testimonial.role}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="italic">
-                      &ldquo;{testimonial.content}&ldquo;
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.section>
-
-        <motion.section
           id="experience"
-          className="mb-16"
+          className="mb-16 pt-[55px] -mt-[55px] block"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -512,10 +475,56 @@ export default function HomePage({
             ))}
           </div>
         </motion.section>
+        <motion.section
+          id="testimonials"
+          className="mb-16 pt-[55px] -mt-[55px] block"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl font-bold mb-4">Client Testimonials</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              {
+                name: "Tracy Fung",
+                role: "Artist",
+                content:
+                  "Very quick and thorough. Asks many questions to ensure the site meets your needs. The results turned out the way I expected and better. Even created a logo.",
+              },
+              {
+                name: "Oluremi Precious",
+                role: "Owner, Love The Beads",
+                content:
+                  "We’re impressed with the seamless functionality and clean design of the website. Excellent job, and your attention to detail is truly commendable!",
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={testimonial.name}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card>
+                  <CardHeader>
+                    <CardTitle>{testimonial.name}</CardTitle>
+                    <CardDescription>{testimonial.role}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="italic">
+                      &ldquo;{testimonial.content}&ldquo;
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
 
         <motion.section
-          id="blog"
-          className="mb-16"
+          id="blog "
+          className="mb-16 pt-[55px] -mt-[55px] block"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
@@ -558,7 +567,7 @@ export default function HomePage({
 
         <motion.section
           id="contact"
-          className="mb-16"
+          className="mb-16 pt-[55px] -mt-[55px] block"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
