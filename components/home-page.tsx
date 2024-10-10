@@ -126,7 +126,7 @@ export default function HomePage({
       <main className="container px-4 py-8 mx-auto w-full space-y-6 relative">
         <motion.section
           id="about"
-          className="mb-16 pt-[55px] -mt-[55px] block"
+          className="mb-16 pt-[100px] -mt-[55px] block"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -242,8 +242,8 @@ export default function HomePage({
                 description:
                   "A public web app for quick analytics on text. It shows word count, character count and social media post limits.",
                 tech: ["React"],
-                demo: "https://github.com/484021/Word-Analytics-React-Vite",
-                github: "https://github.com/johndoe/weather-dashboard",
+                demo: "https://word-analytics-react-vite.vercel.app/",
+                github: "https://github.com/484021/Word-Analytics-React-Vite",
                 image: wordanalytics,
               },
             ].map((project, index) => (
