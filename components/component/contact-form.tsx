@@ -79,6 +79,7 @@ export function ContactForm() {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setFormData({ ...formData, name: e.target.value });
               }}
+              required
             />
           </div>
           <div className="grid gap-2">
@@ -91,6 +92,7 @@ export function ContactForm() {
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                 setFormData({ ...formData, email: e.target.value });
               }}
+              required
             />
           </div>
           <div className="grid gap-2">
